@@ -1,0 +1,8 @@
+{
+  "name": "ZFP a partneři",
+  "description": "Web pro tým finančních poradců - ZFP a partneři",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
