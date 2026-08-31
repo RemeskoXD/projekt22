@@ -135,25 +135,25 @@ export default function Home() {
       description: 'Vzdělávání a kurzy finanční gramotnosti',
     },
     {
-      name: 'Gold',
+      name: 'ZFP Gold',
       fullName: 'ZFP Gold',
       logo: '/logo-gold-web-d7f7fe84.webp',
       description: 'Investiční zlato a drahé kovy',
     },
     {
-      name: 'Hotely',
+      name: 'ZFP Hotely',
       fullName: 'ZFP Hotely',
       logo: '/logo-hotely-web-bc8a7acc.webp',
       description: 'Hotelové a kongresové resorty',
     },
     {
-      name: 'Investments',
+      name: 'ZFP Investments',
       fullName: 'ZFP Investments',
       logo: '/logo-investments-web-4a0d5d9c.webp',
       description: 'Realitní fond a správa investičních aktiv',
     },
     {
-      name: 'Reality',
+      name: 'ZFP Reality',
       fullName: 'ZFP Reality',
       logo: '/logo-reality-web-2-066e7c04.webp',
       description: 'Komplexní realitní zprostředkování',
@@ -314,37 +314,37 @@ export default function Home() {
       </section>
 
       {/* RELATED PROJECTS LOGOS */}
-      <section className="py-20 bg-white border-b border-slate-100">
+      <section className="py-24 bg-slate-50/60 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up" className="text-center mb-12">
-            <h3 className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">Skupina ZFP Group</h3>
-            <h2 className="text-3xl font-bold text-slate-900">Projekty skupiny ZFP Group, a.s.</h2>
-            <p className="text-slate-500 text-sm mt-2 max-w-2xl mx-auto">
+          <ScrollReveal direction="up" className="text-center mb-16">
+            <span className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2 block">Skupina ZFP Group</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">Projekty skupiny ZFP Group, a.s.</h2>
+            <p className="text-slate-600 text-base max-w-2xl mx-auto">
               Silné zázemí mateřské skupiny spojuje vzdělávání, investice, drahé kovy, reality i hotelnictví.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
             {zfpProjects.map((project, idx) => (
               <ScrollReveal 
                 key={project.name}
                 delay={idx * 0.08}
                 direction="up"
-                className="bg-slate-50/70 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-brand-300 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center justify-between group hover:-translate-y-1.5"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-brand-400 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center justify-between group hover:-translate-y-2"
               >
-                <div className="h-16 w-full flex items-center justify-center mb-4">
+                <div className="h-28 w-full flex items-center justify-center mb-5 p-3 rounded-2xl bg-slate-50 group-hover:bg-brand-50/40 transition-colors border border-slate-100/80">
                   <img 
                     src={project.logo} 
                     alt={project.fullName} 
-                    width="140" 
-                    height="50" 
+                    width="220" 
+                    height="90" 
                     loading="lazy" 
-                    className="max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-110" 
+                    className="max-h-20 max-w-[190px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-xs" 
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 text-base mb-1 group-hover:text-brand-600 transition-colors">{project.name}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{project.description}</p>
+                  <h3 className="font-bold text-slate-900 text-lg mb-1.5 group-hover:text-brand-600 transition-colors">{project.name}</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{project.description}</p>
                 </div>
               </ScrollReveal>
             ))}
