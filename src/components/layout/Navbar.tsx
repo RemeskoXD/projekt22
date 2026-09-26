@@ -25,22 +25,15 @@ export default function Navbar() {
     <header className="bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
       <nav aria-label="Hlavní navigace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
-          <div className="flex items-center">
-            <Link to="/" aria-label="ZFP Jagoš & partneři – domovská stránka" className="flex-shrink-0 flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-full overflow-hidden bg-slate-950 border border-slate-200 shadow-sm flex items-center justify-center group-hover:scale-105 transition-transform">
-                <img
-                  src="/logo-jagos-partneri.jpg"
-                  alt="ZFP Jagoš & partneři"
-                  className="w-full h-full object-cover"
-                  width="44"
-                  height="44"
-                />
-              </div>
-              <span className="font-bold text-xl text-slate-900 hidden sm:block tracking-tight group-hover:text-brand-600 transition-colors">
-                ZFP Jagoš & partneři
-              </span>
+            <Link to="/" aria-label="ZFP GROUP Jagoš & partneři – domovská stránka" className="flex-shrink-0 flex items-center group py-2">
+              <img
+                src="/logo-zfp-jagos-partneri.png"
+                alt="ZFP GROUP Jagoš & partneři"
+                className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+                width="165"
+                height="48"
+              />
             </Link>
-          </div>
           
           <div className="hidden md:flex md:items-center md:space-x-8">
             {links.map((link) => (

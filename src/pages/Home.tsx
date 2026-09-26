@@ -249,35 +249,48 @@ export default function Home() {
                   Poznat náš tým
                 </Link>
               </div>
-              
-              {/* Animated Stat Tickers */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 pt-10 border-t border-white/10 w-full">
-                <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={13063} />
-                  </p>
-                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Klientů</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={540} suffix=" mil.+" />
-                  </p>
-                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Kč ve správě</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={praxeYears} suffix=" let" />
-                  </p>
-                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Praxe v oboru</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
-                  <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={zfpYears} suffix=" let" />
-                  </p>
-                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Historie ZFP</p>
-                </div>
-              </div>
             </motion.div>
+          </div>
+
+          {/* Animated Stat Tickers - spacious luxury layout with plenty of room */}
+          <div className="max-w-6xl mx-auto mt-20 pt-10 border-t border-white/10 w-full">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              <div className="bg-slate-900/60 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-brand-500/40 hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center text-center shadow-xl group hover:-translate-y-1">
+                <p className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap">
+                  <CountUp to={13063} />
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-300 mt-2 tracking-wide uppercase">
+                  Klientů
+                </p>
+              </div>
+              
+              <div className="bg-slate-900/60 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-brand-500/40 hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center text-center shadow-xl group hover:-translate-y-1">
+                <p className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap">
+                  <CountUp to={540} suffix=" mil.+" />
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-300 mt-2 tracking-wide uppercase">
+                  Kč ve správě
+                </p>
+              </div>
+
+              <div className="bg-slate-900/60 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-brand-500/40 hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center text-center shadow-xl group hover:-translate-y-1">
+                <p className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap">
+                  <CountUp to={praxeYears} suffix=" let" />
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-300 mt-2 tracking-wide uppercase">
+                  Praxe v oboru
+                </p>
+              </div>
+
+              <div className="bg-slate-900/60 backdrop-blur-md p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-brand-500/40 hover:bg-slate-900/80 transition-all flex flex-col items-center justify-center text-center shadow-xl group hover:-translate-y-1">
+                <p className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-white tracking-tight whitespace-nowrap">
+                  <CountUp to={zfpYears} suffix=" let" />
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-slate-300 mt-2 tracking-wide uppercase">
+                  Historie ZFP
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

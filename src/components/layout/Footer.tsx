@@ -8,17 +8,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-11 h-11 rounded-full overflow-hidden bg-slate-950 border border-slate-700 shadow-md flex items-center justify-center">
+            <div className="mb-6">
+              <Link to="/" className="inline-block bg-white p-2.5 rounded-2xl shadow-sm hover:opacity-95 transition-opacity">
                 <img
-                  src="/logo-jagos-partneri.jpg"
-                  alt="ZFP Jagoš & partneři"
-                  className="w-full h-full object-cover"
-                  width="44"
-                  height="44"
+                  src="/logo-zfp-jagos-partneri.png"
+                  alt="ZFP GROUP Jagoš & partneři"
+                  className="h-10 w-auto object-contain"
+                  width="145"
+                  height="42"
                 />
-              </div>
-              <span className="font-bold text-xl text-white">Jagoš & partneři</span>
+              </Link>
             </div>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
               Pomáháme rodinám i podnikatelům s jistotou budovat a chránit finanční majetek. Komplexní služby, hypotéky a investice pod jednou střechou. Člen skupiny ZFP Group, a.s.
