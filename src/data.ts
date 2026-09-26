@@ -138,8 +138,12 @@ export const teamMembers: TeamMember[] = [
     bio: 'Pomáhám klientům orientovat se v možnostech spoření, investic a zabezpečení rodiny.',
     quote: '"S poctivým přístupem a jasným plánem lze dosáhnout každého finančního snu."',
     email: 'kristyna.rancikova@zfpa.cz',
-    phone: '+420 606 084 044',
-    imageUrl: '',
+    phone: '+420 607 396 112',
+    imageUrl: '/kristyna-rancikova.png',
+    socials: {
+      facebook: 'https://www.facebook.com/kristyna.rancikova',
+      instagram: 'https://www.instagram.com/rancicena'
+    }
   },
   {
     id: 'tomas-herka',
