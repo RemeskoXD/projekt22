@@ -37,7 +37,7 @@ export default function ReviewsSection() {
             Co o nás říkají naši klienti
           </h2>
           <p className="text-lg text-slate-600">
-            Dlouhodobá důvěra a spokojenost více než 12 500 rodin a podnikatelů je naším největším závazkem.
+            Dlouhodobá důvěra a spokojenost více než 13 000 rodin a podnikatelů je naším největším závazkem.
           </p>
         </ScrollReveal>
 

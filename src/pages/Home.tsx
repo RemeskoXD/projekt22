@@ -11,10 +11,14 @@ import TrustBadges from '../components/home/TrustBadges';
 import ProcessRoadmap from '../components/home/ProcessRoadmap';
 import ReviewsSection from '../components/home/ReviewsSection';
 import FaqSection from '../components/home/FaqSection';
+import { calculateYearsSince, JAROSLAV_JAGOS_START_DATE, ZFP_GROUP_START_DATE } from '../utils/dateUtils';
 
 export default function Home() {
   const { scrollY } = useScroll();
   const smoothScroll = useSpring(scrollY, { stiffness: 60, damping: 20 });
+  
+  const praxeYears = calculateYearsSince(JAROSLAV_JAGOS_START_DATE);
+  const zfpYears = calculateYearsSince(ZFP_GROUP_START_DATE);
   
   // Parallax effects for Hero section
   const heroImageY = useTransform(smoothScroll, [0, 800], [0, 180]);
@@ -238,25 +242,25 @@ export default function Home() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-16 pt-10 border-t border-white/10 w-full">
                 <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
                   <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={12500} suffix="+" />
+                    <CountUp to={13063} />
                   </p>
-                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Spokojených klientů</p>
+                  <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Klientů</p>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
                   <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={350} suffix=" mil.+" />
+                    <CountUp to={540} suffix=" mil.+" />
                   </p>
                   <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Kč ve správě</p>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
                   <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={17} suffix=" let" />
+                    <CountUp to={praxeYears} suffix=" let" />
                   </p>
                   <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Praxe v oboru</p>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/5">
                   <p className="text-3xl sm:text-4xl font-extrabold text-white">
-                    <CountUp to={30} suffix=" let" />
+                    <CountUp to={zfpYears} suffix=" let" />
                   </p>
                   <p className="text-xs sm:text-sm font-medium text-slate-300 mt-1">Historie ZFP</p>
                 </div>

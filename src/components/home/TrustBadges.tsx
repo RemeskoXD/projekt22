@@ -1,7 +1,10 @@
 import { Award, Shield, Building2, CheckCircle, Scale } from 'lucide-react';
 import ScrollReveal from '../animations/ScrollReveal';
+import { calculateYearsSince, ZFP_GROUP_START_DATE } from '../../utils/dateUtils';
 
 export default function TrustBadges() {
+  const zfpYears = calculateYearsSince(ZFP_GROUP_START_DATE);
+
   const credentials = [
     {
       title: 'Titul EFA & PFP',
@@ -14,7 +17,7 @@ export default function TrustBadges() {
       icon: Shield
     },
     {
-      title: '30+ let tradice ZFP',
+      title: `${zfpYears}+ let tradice ZFP`,
       subtitle: 'Stabilní zázemí jedné z největších finančních skupin',
       icon: Building2
     },
