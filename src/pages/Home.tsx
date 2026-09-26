@@ -133,9 +133,9 @@ export default function Home() {
 
   const zfpProjects = [
     {
-      name: 'Akademia',
+      name: 'ZFP Akademie',
       fullName: 'ZFP Akademie',
-      logo: '/logo-akademia-web-781eb0c3.webp',
+      logo: '/logo-akademie-cz.png',
       description: 'Vzdělávání a kurzy finanční gramotnosti',
     },
     {
