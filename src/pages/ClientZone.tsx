@@ -93,12 +93,66 @@ export default function ClientZone() {
                 
                 <div className="space-y-4">
                   <motion.a
+                    href="https://hypospace.cz"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-brand-300 hover:bg-brand-50/50 transition-colors group bg-white"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src="/logo-hypospace.png" 
+                        alt="HypoSpace.cz" 
+                        className="h-7 w-auto object-contain"
+                        width="110"
+                        height="28"
+                        loading="lazy"
+                      />
+                      <div>
+                        <span className="font-semibold text-slate-900 group-hover:text-brand-700 block">HypoSpace.cz – Hypoteční kalkulačka</span>
+                        <span className="text-xs text-slate-500">Online srovnání hypotečních sazeb</span>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-brand-600 shrink-0" />
+                  </motion.a>
+
+                  <motion.a
+                    href="https://www.zfpreality.cz"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.05 }}
+                    className="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-brand-300 hover:bg-brand-50/50 transition-colors group bg-white"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src="/logo-reality-web-2-066e7c04.webp" 
+                        alt="ZFP Reality" 
+                        className="h-7 w-auto object-contain"
+                        width="110"
+                        height="28"
+                        loading="lazy"
+                      />
+                      <div>
+                        <span className="font-semibold text-slate-900 group-hover:text-brand-700 block">ZFP Reality – Odhad nemovitosti</span>
+                        <span className="text-xs text-slate-500">Rychlé ocenění tržní hodnoty nemovitosti</span>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-brand-600 shrink-0" />
+                  </motion.a>
+
+                  <motion.a
                     href="https://zfpinvestments.com"
                     target="_blank"
                     rel="noreferrer noopener"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
                     className="flex items-center justify-between p-4 rounded-xl border border-slate-200 hover:border-brand-300 hover:bg-brand-50/50 transition-colors group bg-white"
                   >
                     <div className="flex items-center gap-3">
@@ -110,7 +164,10 @@ export default function ClientZone() {
                         height="32"
                         loading="lazy"
                       />
-                      <span className="font-semibold text-slate-900 group-hover:text-brand-700">ZFP Investments – Realitní fond</span>
+                      <div>
+                        <span className="font-semibold text-slate-900 group-hover:text-brand-700 block">ZFP Investments – Realitní fond</span>
+                        <span className="text-xs text-slate-500">Správa a zhodnocování investičních aktiv</span>
+                      </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-brand-600 shrink-0" />
                   </motion.a>

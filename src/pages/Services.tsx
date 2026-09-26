@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Home, TrendingUp, ShieldCheck, Baby, Calculator, PiggyBank, ArrowRight, Sparkles } from 'lucide-react';
+import { Home, TrendingUp, ShieldCheck, Baby, Calculator, PiggyBank, ArrowRight, Sparkles, ExternalLink, Building2 } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
@@ -312,6 +312,87 @@ export default function Services() {
               </div>
 
             </div>
+
+            {/* Additional Specialized Online Tools (HypoSpace + ZFP Reality) */}
+            <div className="mt-12 pt-12 border-t border-slate-700/80">
+              <h3 className="text-xl font-bold text-white text-center mb-8">
+                Další online nástroje a kalkulačky našich projektů
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                {/* HypoSpace Calculator */}
+                <div className="bg-slate-900/90 rounded-2xl p-6 border border-slate-700/70 hover:border-brand-400 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-12 bg-white px-3 py-1.5 rounded-xl flex items-center justify-center">
+                        <img 
+                          src="/logo-hypospace.png" 
+                          alt="HypoSpace.cz – Hypoteční kalkulačka" 
+                          className="h-7 w-auto object-contain"
+                          width="140"
+                          height="35"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">
+                        Hypoteční srovnávač
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                      HypoSpace.cz – Online hypoteční kalkulačka
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                      Okamžité a nezávislé porovnání hypotečních nabídek všech bank na českém trhu. Spočítejte si reálnou měsíční splátku i s neveřejnými sazbami.
+                    </p>
+                  </div>
+                  <a 
+                    href="https://hypospace.cz" 
+                    target="_blank" 
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-semibold text-sm transition-all shadow-md group-hover:scale-[1.02]"
+                  >
+                    Otevřít HypoSpace kalkulačku <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+
+                {/* ZFP Reality Property Valuation */}
+                <div className="bg-slate-900/90 rounded-2xl p-6 border border-slate-700/70 hover:border-brand-400 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-12 bg-white px-3 py-1.5 rounded-xl flex items-center justify-center">
+                        <img 
+                          src="/logo-reality-web-2-066e7c04.webp" 
+                          alt="ZFP Reality – Odhad ceny nemovitosti" 
+                          className="h-7 w-auto object-contain"
+                          width="140"
+                          height="35"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">
+                        Oceňování nemovitostí
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                      ZFP Reality – Online odhad nemovitosti
+                    </h4>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                      Rychlé zjištění aktuální tržní hodnoty bytu, rodinného domu či pozemku na základě přesných dat z katastru nemovitostí a reálných prodejních cen.
+                    </p>
+                  </div>
+                  <a 
+                    href="https://www.zfpreality.cz" 
+                    target="_blank" 
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-all group-hover:scale-[1.02]"
+                  >
+                    Vyzkoušet odhad nemovitosti <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

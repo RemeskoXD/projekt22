@@ -137,30 +137,42 @@ export default function Home() {
       fullName: 'ZFP Akademie',
       logo: '/logo-akademie-cz.png',
       description: 'Vzdělávání a kurzy finanční gramotnosti',
+      url: 'https://www.zfpa.cz',
+    },
+    {
+      name: 'HypoSpace.cz',
+      fullName: 'HypoSpace.cz – Hypoteční technologie',
+      logo: '/logo-hypospace.png',
+      description: 'Chytrá hypoteční kalkulačka a online srovnávač hypoték',
+      url: 'https://hypospace.cz',
+    },
+    {
+      name: 'ZFP Reality',
+      fullName: 'ZFP Reality',
+      logo: '/logo-reality-web-2-066e7c04.webp',
+      description: 'Realitní zprostředkování a online odhad nemovitosti',
+      url: 'https://www.zfpreality.cz',
     },
     {
       name: 'ZFP Gold',
       fullName: 'ZFP Gold',
       logo: '/logo-gold-web-d7f7fe84.webp',
       description: 'Investiční zlato a drahé kovy',
-    },
-    {
-      name: 'ZFP Hotely',
-      fullName: 'ZFP Hotely',
-      logo: '/logo-hotely-web-bc8a7acc.webp',
-      description: 'Hotelové a kongresové resorty',
+      url: 'https://www.zfpgold.cz',
     },
     {
       name: 'ZFP Investments',
       fullName: 'ZFP Investments',
       logo: '/logo-investments-web-4a0d5d9c.webp',
       description: 'Realitní fond a správa investičních aktiv',
+      url: 'https://zfpinvestments.com',
     },
     {
-      name: 'ZFP Reality',
-      fullName: 'ZFP Reality',
-      logo: '/logo-reality-web-2-066e7c04.webp',
-      description: 'Komplexní realitní zprostředkování',
+      name: 'ZFP Hotely',
+      fullName: 'ZFP Hotely',
+      logo: '/logo-hotely-web-bc8a7acc.webp',
+      description: 'Hotelové a kongresové resorty',
+      url: 'https://www.zfphotely.cz',
     },
   ];
 
@@ -328,28 +340,35 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-6">
             {zfpProjects.map((project, idx) => (
               <ScrollReveal 
                 key={project.name}
-                delay={idx * 0.08}
+                delay={idx * 0.06}
                 direction="up"
-                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-brand-400 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center justify-between group hover:-translate-y-2"
+                className="flex"
               >
-                <div className="h-28 w-full flex items-center justify-center mb-5 p-3 rounded-2xl bg-slate-50 group-hover:bg-brand-50/40 transition-colors border border-slate-100/80">
-                  <img 
-                    src={project.logo} 
-                    alt={project.fullName} 
-                    width="220" 
-                    height="90" 
-                    loading="lazy" 
-                    className="max-h-20 max-w-[190px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-xs" 
-                  />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-1.5 group-hover:text-brand-600 transition-colors">{project.name}</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{project.description}</p>
-                </div>
+                <a 
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="w-full bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 hover:border-brand-400 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center justify-between group hover:-translate-y-2"
+                >
+                  <div className="h-24 w-full flex items-center justify-center mb-4 p-2.5 rounded-2xl bg-slate-50 group-hover:bg-brand-50/40 transition-colors border border-slate-100/80">
+                    <img 
+                      src={project.logo} 
+                      alt={project.fullName} 
+                      width="220" 
+                      height="90" 
+                      loading="lazy" 
+                      className="max-h-16 max-w-[160px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-xs" 
+                    />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-brand-600 transition-colors">{project.name}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">{project.description}</p>
+                  </div>
+                </a>
               </ScrollReveal>
             ))}
           </div>
