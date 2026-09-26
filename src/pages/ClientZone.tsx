@@ -13,7 +13,7 @@ export default function ClientZone() {
     <div className="bg-white min-h-screen">
       <SEO 
         title="Klientská zóna – Hlášení pojistných událostí a dokumenty"
-        description="Rychlé rozcestníky a formuláře pro hlášení pojistných událostí u pojišťoven NN, Kooperativa a ČSOB. Klientský servis ZFP Jagoš & Cábovi."
+        description="Rychlé rozcestníky a formuláře pro hlášení pojistných událostí u pojišťoven NN, Kooperativa a ČSOB. Klientský servis ZFP Jagoš & partneři."
         canonical="/pro-klienty"
       />
       

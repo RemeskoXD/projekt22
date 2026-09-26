@@ -10,7 +10,7 @@ export default function FaqSection() {
   const faqs = [
     {
       q: 'Proč řešit hypotéku nebo investice s vámi a ne přímo v bance?',
-      a: 'Banka vám vždy nabídne pouze své vlastní produkty, ať už jsou na trhu výhodné, nebo ne. My jako nezávislí poradci ZFP Jagoš & Cábovi máme k dispozici kompletní portfolio všech tuzemských bank a institucí. Porovnáme pro vás desítky nabídek, vyjednáme neveřejné sazby a ušetříme vám desítky hodin obíhání poboček a statisíce korun na úrocích a poplatcích.'
+      a: 'Banka vám vždy nabídne pouze své vlastní produkty, ať už jsou na trhu výhodné, nebo ne. My jako nezávislí poradci ZFP Jagoš & partneři máme k dispozici kompletní portfolio všech tuzemských bank a institucí. Porovnáme pro vás desítky nabídek, vyjednáme neveřejné sazby a ušetříme vám desítky hodin obíhání poboček a statisíce korun na úrocích a poplatcích.'
     },
     {
       q: 'Kolik stojí vaše služby a jak jste odměňováni?',

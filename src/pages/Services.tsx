@@ -43,7 +43,7 @@ export default function Services() {
         "name": "Bydlení a hypotéky",
         "provider": {
           "@type": "FinancialService",
-          "name": "ZFP Jagoš & Cábovi"
+          "name": "ZFP Jagoš & partneři"
         },
         "description": "Nezávislé srovnání hypotečních úvěrů, refinancování a kompletní vyřízení na míru."
       },
@@ -52,7 +52,7 @@ export default function Services() {
         "name": "Investice a zhodnocení majetku",
         "provider": {
           "@type": "FinancialService",
-          "name": "ZFP Jagoš & Cábovi"
+          "name": "ZFP Jagoš & partneři"
         },
         "description": "Tvorba dlouhodobých investičních portfolií, pravidelné i jednorázové investice, ochrana před inflací."
       },
@@ -61,7 +61,7 @@ export default function Services() {
         "name": "Zajištění příjmů a ochrana rodiny",
         "provider": {
           "@type": "FinancialService",
-          "name": "ZFP Jagoš & Cábovi"
+          "name": "ZFP Jagoš & partneři"
         },
         "description": "Komplexní pojistná ochrana při nečekaných životních situacích a výpadku příjmů."
       }

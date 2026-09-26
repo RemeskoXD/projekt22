@@ -11,7 +11,7 @@ export default function Team() {
   const teamSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Tým finančních specialistů ZFP Jagoš & Cábovi",
+    "name": "Tým finančních specialistů ZFP Jagoš & partneři",
     "numberOfItems": teamMembers.length,
     "itemListElement": teamMembers.map((member, index) => ({
       "@type": "ListItem",
@@ -31,7 +31,7 @@ export default function Team() {
     <div className="bg-white min-h-screen overflow-x-hidden">
       <SEO 
         title="Náš tým finančních poradců a specialistů"
-        description="Poznejte tým finančních profesionálů ZFP Jagoš & Cábovi. Osobní přístup, dlouholetá praxe a férové jednání ve Veselí nad Moravou, Brně a okolí."
+        description="Poznejte tým finančních profesionálů ZFP Jagoš & partneři. Osobní přístup, dlouholetá praxe a férové jednání ve Veselí nad Moravou, Brně a okolí."
         canonical="/tym"
         schema={teamSchema}
       />
@@ -46,7 +46,7 @@ export default function Team() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-500/10 text-brand-400 font-semibold text-xs uppercase tracking-wider mb-6 border border-brand-500/20 backdrop-blur-sm">
-              <Users className="w-3.5 h-3.5 mr-2" /> Specialisté ZFP Jagoš & Cábovi
+              <Users className="w-3.5 h-3.5 mr-2" /> Specialisté ZFP Jagoš & partneři
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               Poznejte náš <span className="bg-gradient-to-r from-brand-400 to-amber-300 bg-clip-text text-transparent">tým</span>
@@ -109,7 +109,7 @@ export default function Team() {
               <span className="text-xs font-bold tracking-widest text-brand-400 uppercase mb-3 block">Příležitost</span>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">Hledáte novou kariérní výzvu?</h2>
               <p className="text-slate-300 mb-8 leading-relaxed">
-                Stále rozšiřujeme náš tým ZFP Jagoš & Cábovi o lidi, kteří chtějí dělat finance jinak – poctivě, srozumitelně a s důrazem na dlouhodobý vztah s klientem.
+                Stále rozšiřujeme náš tým ZFP Jagoš & partneři o lidi, kteří chtějí dělat finance jinak – poctivě, srozumitelně a s důrazem na dlouhodobý vztah s klientem.
               </p>
               <Link 
                 to="/kariera" 

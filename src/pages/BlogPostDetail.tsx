@@ -35,15 +35,15 @@ export default function BlogPostDetail() {
     "datePublished": "2026-06-20",
     "author": {
       "@type": "Organization",
-      "name": "ZFP Jagoš & Cábovi",
+      "name": "ZFP Jagoš & partneři",
       "url": "https://zfpjagos.cz"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "ZFP Jagoš & Cábovi",
+      "name": "ZFP Jagoš & partneři",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://zfpjagos.cz/ZFPJCLogo-2.webp"
+        "url": "https://zfpjagos.cz/logo-jagos-partneri.jpg"
       }
     },
     "mainEntityOfPage": {

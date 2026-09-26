@@ -31,7 +31,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
         {initials ? (
           <div className="flex flex-col items-center justify-center">
             <span className="text-3xl md:text-4xl tracking-wider text-slate-700">{initials}</span>
-            <span className="text-xs font-medium text-slate-400 mt-2">ZFP Jagoš & Cábovi</span>
+            <span className="text-xs font-medium text-slate-400 mt-2">ZFP Jagoš & partneři</span>
           </div>
         ) : (
           <User className="w-12 h-12 text-slate-400" />

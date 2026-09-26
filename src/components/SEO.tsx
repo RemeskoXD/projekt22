@@ -11,8 +11,8 @@ export interface SEOProps {
   noindex?: boolean;
 }
 
-const DEFAULT_TITLE = 'ZFP Jagoš & Cábovi | Komplexní finanční plánování, hypotéky a investice';
-const DEFAULT_DESCRIPTION = 'Profesionální finanční poradenství, hypotéky, správa investic a ochrana příjmů pod vedením Bc. Jaroslava Jagoše. ZFP Jagoš & Cábovi – člen ZFP Group.';
+const DEFAULT_TITLE = 'ZFP Jagoš & partneři | Komplexní finanční plánování, hypotéky a investice';
+const DEFAULT_DESCRIPTION = 'Profesionální finanční poradenství, hypotéky, správa investic a ochrana příjmů pod vedením Bc. Jaroslava Jagoše. ZFP Jagoš & partneři – člen ZFP Group.';
 const DEFAULT_IMAGE = '/spolecna-2-scaled.webp';
 const BASE_URL = 'https://zfpjagos.cz';
 
@@ -27,7 +27,7 @@ export default function SEO({
 }: SEOProps) {
   const location = useLocation();
   const currentUrl = canonical ? `${BASE_URL}${canonical}` : `${BASE_URL}${location.pathname}`;
-  const fullTitle = title ? `${title} | ZFP Jagoš & Cábovi` : DEFAULT_TITLE;
+  const fullTitle = title ? `${title} | ZFP Jagoš & partneři` : DEFAULT_TITLE;
   const fullImageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function SEO({
     setMetaTag('property', 'og:url', currentUrl);
     setMetaTag('property', 'og:type', type);
     setMetaTag('property', 'og:image', fullImageUrl);
-    setMetaTag('property', 'og:site_name', 'ZFP Jagoš & Cábovi');
+    setMetaTag('property', 'og:site_name', 'ZFP Jagoš & partneři');
     setMetaTag('property', 'og:locale', 'cs_CZ');
 
     // 4. Twitter Cards

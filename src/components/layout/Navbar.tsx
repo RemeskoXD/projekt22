@@ -26,11 +26,19 @@ export default function Navbar() {
       <nav aria-label="Hlavní navigace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" aria-label="ZFP Jagoš & Cábovi – domovská stránka" className="flex-shrink-0 flex items-center gap-2">
-              <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-xl">ZFP</span>
+            <Link to="/" aria-label="ZFP Jagoš & partneři – domovská stránka" className="flex-shrink-0 flex items-center gap-3 group">
+              <div className="w-11 h-11 rounded-full overflow-hidden bg-slate-950 border border-slate-200 shadow-sm flex items-center justify-center group-hover:scale-105 transition-transform">
+                <img
+                  src="/logo-jagos-partneri.jpg"
+                  alt="ZFP Jagoš & partneři"
+                  className="w-full h-full object-cover"
+                  width="44"
+                  height="44"
+                />
               </div>
-              <span className="font-semibold text-xl text-slate-900 hidden sm:block">ZFP Jagoš & Cábovi</span>
+              <span className="font-bold text-xl text-slate-900 hidden sm:block tracking-tight group-hover:text-brand-600 transition-colors">
+                ZFP Jagoš & partneři
+              </span>
             </Link>
           </div>
           

@@ -8,7 +8,7 @@ export default function Blog() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Blog a aktuality – ZFP Jagoš & Cábovi",
+    "name": "Blog a aktuality – ZFP Jagoš & partneři",
     "description": "Články a novinky z finančního trhu, hypoték a investic.",
     "url": "https://zfpjagos.cz/blog"
   };

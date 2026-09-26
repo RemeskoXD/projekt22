@@ -43,12 +43,12 @@ export default function Contact() {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Kontakt – ZFP Jagoš & Cábovi",
+    "name": "Kontakt – ZFP Jagoš & partneři",
     "description": "Sjednejte si nezávaznou konzultaci s naším týmem finančních poradců.",
     "url": "https://zfpjagos.cz/kontakt",
     "mainEntity": {
       "@type": "FinancialService",
-      "name": "ZFP Jagoš & Cábovi",
+      "name": "ZFP Jagoš & partneři",
       "telephone": "+420606084044",
       "email": "info@zfpjagos.cz",
       "address": {
@@ -65,7 +65,7 @@ export default function Contact() {
     <div className="bg-white min-h-screen overflow-x-hidden">
       <SEO 
         title="Kontakt a sjednání schůzky"
-        description="Kontaktujte kancelář ZFP Jagoš & Cábovi ve Veselí nad Moravou. Telefon: +420 606 084 044, e-mail: info@zfpjagos.cz. Sjednejte si nezávaznou konzultaci."
+        description="Kontaktujte kancelář ZFP Jagoš & partneři ve Veselí nad Moravou. Telefon: +420 606 084 044, e-mail: info@zfpjagos.cz. Sjednejte si nezávaznou konzultaci."
         canonical="/kontakt"
         schema={contactSchema}
       />
@@ -76,7 +76,7 @@ export default function Contact() {
           <img
             className="w-full h-full object-cover opacity-20"
             src="/jagosorez.webp?v=1"
-            alt="Kancelář finančních poradců ZFP Jagoš & Cábovi"
+            alt="Kancelář finančních poradců ZFP Jagoš & partneři"
             loading="eager"
             width="1200"
             height="400"

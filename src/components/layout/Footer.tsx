@@ -8,11 +8,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           <div>
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center shadow-md">
-                <span className="text-white font-extrabold text-xl tracking-tight">ZFP</span>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-full overflow-hidden bg-slate-950 border border-slate-700 shadow-md flex items-center justify-center">
+                <img
+                  src="/logo-jagos-partneri.jpg"
+                  alt="ZFP Jagoš & partneři"
+                  className="w-full h-full object-cover"
+                  width="44"
+                  height="44"
+                />
               </div>
-              <span className="font-bold text-xl text-white">Jagoš & Cábovi</span>
+              <span className="font-bold text-xl text-white">Jagoš & partneři</span>
             </div>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
               Pomáháme rodinám i podnikatelům s jistotou budovat a chránit finanční majetek. Komplexní služby, hypotéky a investice pod jednou střechou. Člen skupiny ZFP Group, a.s.
@@ -52,7 +58,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61567893967623" 
                 target="_blank" 
                 rel="noreferrer noopener" 
-                aria-label="Facebook ZFP Jagoš & Cábovi" 
+                aria-label="Facebook ZFP Jagoš & partneři" 
                 className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all"
                 title="Facebook"
               >
@@ -105,7 +111,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} ZFP Jagoš & Cábovi. Všechna práva vyhrazena.</p>
+          <p>&copy; {new Date().getFullYear()} ZFP Jagoš & partneři. Všechna práva vyhrazena.</p>
           <div className="mt-4 md:mt-0 space-x-6">
             <Link to="/kontakt" className="hover:text-white transition-colors">Sjednat schůzku</Link>
             <Link to="/pro-klienty" className="hover:text-white transition-colors">Hlášení pojistných událostí</Link>

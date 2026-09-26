@@ -28,10 +28,10 @@ export default function Home() {
       {
         "@type": "FinancialService",
         "@id": "https://zfpjagos.cz/#financial-service",
-        "name": "ZFP Jagoš & Cábovi",
-        "legalName": "ZFP Jagoš & Cábovi, strukturní kancelář ZFP Group, a.s.",
+        "name": "ZFP Jagoš & partneři",
+        "legalName": "ZFP Jagoš & partneři, strukturní kancelář ZFP Group, a.s.",
         "url": "https://zfpjagos.cz",
-        "logo": "https://zfpjagos.cz/spolecna-2-scaled.webp",
+        "logo": "https://zfpjagos.cz/logo-jagos-partneri.jpg",
         "image": "https://zfpjagos.cz/spolecna-2-scaled.webp",
         "description": "Přední poradenská kancelář pro komplexní finanční plánování, nezávislé hypotéky, zhodnocení investic a ochranu rodinných rozpočtů. Veselí nad Moravou & Brno.",
         "telephone": "+420606084044",
@@ -85,7 +85,7 @@ export default function Home() {
             "name": "Proč řešit hypotéku nebo investice s vámi a ne přímo v bance?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Banka vám vždy nabídne pouze své vlastní produkty. My jako nezávislí poradci ZFP Jagoš & Cábovi porovnáme desítky bank a fondů na celém trhu, vyjednáme neveřejné sazby a ušetříme vám desítky hodin času i statisíce korun."
+              "text": "Banka vám vždy nabídne pouze své vlastní produkty. My jako nezávislí poradci ZFP Jagoš & partneři porovnáme desítky bank a fondů na celém trhu, vyjednáme neveřejné sazby a ušetříme vám desítky hodin času i statisíce korun."
             }
           },
           {
@@ -164,7 +164,7 @@ export default function Home() {
     <div className="bg-white min-h-screen font-sans overflow-x-hidden">
       <SEO 
         title="Komplexní finanční plánování, hypotéky a investice"
-        description="Profesionální finanční služby, hypotéky, správa investic a ochrana příjmů pod vedením Bc. Jaroslava Jagoše. ZFP Jagoš & Cábovi – Veselí nad Moravou & Brno."
+        description="Profesionální finanční služby, hypotéky, správa investic a ochrana příjmů pod vedením Bc. Jaroslava Jagoše. ZFP Jagoš & partneři – Veselí nad Moravou & Brno."
         canonical="/"
         schema={homeSchema}
       />
@@ -178,7 +178,7 @@ export default function Home() {
         >
           <img 
             src="/spolecna-2-scaled.webp?v=1" 
-            alt="Tým finančních poradců ZFP Jagoš & Cábovi" 
+            alt="Tým finančních poradců ZFP Jagoš & partneři" 
             className="w-full h-full object-cover object-top opacity-35"
             loading="eager"
             fetchPriority="high"
@@ -215,7 +215,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed text-shadow-sm">
-                ZFP Jagoš & Cábovi. Jsme jednou z největších vzdělávacích a zprostředkovatelských společností v oblasti financí. Zvyšujeme finanční gramotnost v ČR.
+                ZFP Jagoš & partneři. Jsme jednou z největších vzdělávacích a zprostředkovatelských společností v oblasti financí. Zvyšujeme finanční gramotnost v ČR.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -277,7 +277,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
             <ScrollReveal direction="left" className="lg:col-span-5 flex flex-col justify-center">
               <span className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2">O našem týmu</span>
-              <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-8">ZFP Jagoš & Cábovi</h2>
+              <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-8">ZFP Jagoš & partneři</h2>
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
                 <p>
                   Věříme, že finanční plánování není o složitých tabulkách a nesrozumitelných grafech. Je to o vašich životních cílech, snech a o vaší rodině. Naším úkolem je vytvořit pro vás bezpečné prostředí, ve kterém mohou vaše finance stabilně růst, zatímco vy se věnujete tomu, co vás naplňuje.
@@ -286,7 +286,7 @@ export default function Home() {
                   Zakládáme si na spolehlivosti, profesionálním, ale především lidském přístupu. Díky našim dlouholetým zkušenostem hledáme na trhu řešení, která dávají smysl výhradně vám. Naše práce je postavena na naprosté transparentnosti a dlouhodobém partnerství s našimi klienty.
                 </p>
                 <p>
-                  Náš tým ZFP Jagoš & Cábovi, coby hrdý člen skupiny ZFP Group, a.s., vám pomůže k tomu, abyste ze svých peněz měli opravdové maximum. Od hypoték, přes ochranu majetku, až po investice.
+                  Náš tým ZFP Jagoš & partneři, coby hrdý člen skupiny ZFP Group, a.s., vám pomůže k tomu, abyste ze svých peněz měli opravdové maximum. Od hypoték, přes ochranu majetku, až po investice.
                 </p>
               </div>
               <div className="mt-10 pt-8 border-t border-slate-200 mt-auto">
@@ -298,7 +298,7 @@ export default function Home() {
             <ScrollReveal direction="right" delay={0.2} className="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-2xl min-h-[420px] group">
               <img 
                 src={getImageUrl("/HRK 1/Jaroslav Jagoš/WEB/DSC_4937.webp")} 
-                alt="Bc. Jaroslav Jagoš, EFA – ředitel obchodního týmu ZFP Jagoš & Cábovi" 
+                alt="Bc. Jaroslav Jagoš, EFA – ředitel obchodního týmu ZFP Jagoš & partneři" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 loading="lazy"
                 width="800"
@@ -397,7 +397,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up" className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2 block">Naši specialisté</span>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-4">Náš tým ZFP Jagoš & Cábovi</h2>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-4">Náš tým ZFP Jagoš & partneři</h2>
             <p className="text-lg text-slate-600">Spolehlivost, profesionální a lidský přístup, dlouholeté zkušenosti.</p>
           </ScrollReveal>
 
@@ -469,7 +469,7 @@ export default function Home() {
             />
           </div>
           <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-1">Bc. Jaroslav Jagoš, EFA</h2>
-          <p className="text-brand-600 mb-8 font-medium text-sm">ZFP Jagoš & Cábovi</p>
+          <p className="text-brand-600 mb-8 font-medium text-sm">ZFP Jagoš & partneři</p>
           
           <div className="space-y-3.5">
             <a 

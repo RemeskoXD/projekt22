@@ -14,7 +14,7 @@ export default function Podcast() {
     "webFeed": "https://open.spotify.com/show/7i18QORJT0w3adVnydRWA8",
     "author": {
       "@type": "Organization",
-      "name": "ZFP Jagoš & Cábovi",
+      "name": "ZFP Jagoš & partneři",
       "url": "https://zfpjagos.cz"
     },
     "sameAs": [
@@ -207,7 +207,7 @@ export default function Podcast() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span>Autoři: Patrik Knotek & ZFP Jagoš & Cábovi</span>
+                <span>Autoři: Patrik Knotek & ZFP Jagoš & partneři</span>
                 <a href="https://linktr.ee/FIKOMPAS" target="_blank" rel="noreferrer noopener" className="font-semibold text-brand-600 hover:underline">
                   linktr.ee/FIKOMPAS
                 </a>

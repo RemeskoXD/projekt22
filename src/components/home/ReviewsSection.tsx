@@ -14,7 +14,7 @@ export default function ReviewsSection() {
       name: 'Lucie a Marek Dvořákovi',
       role: 'Mladá rodina, Uherské Hradiště',
       service: 'Hypotéka a pojištění na dům',
-      text: 'Když jsme kupovali dům, v naší bance nám nabídli vysoký úrok a složité podmínky. Tým ZFP Jagoš & Cábovi nám porovnal celý trh, vyjednal o 0,8 % nižší sazbu a ušetřil nám na celkové splátce stovky tisíc. Veškerou administrativu s katastrem a bankou vyřešili za nás.',
+      text: 'Když jsme kupovali dům, v naší bance nám nabídli vysoký úrok a složité podmínky. Tým ZFP Jagoš & partneři nám porovnal celý trh, vyjednal o 0,8 % nižší sazbu a ušetřil nám na celkové splátce stovky tisíc. Veškerou administrativu s katastrem a bankou vyřešili za nás.',
       rating: 5
     },
     {

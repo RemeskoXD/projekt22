@@ -66,7 +66,7 @@ export default function Career() {
     <div className="bg-white min-h-screen overflow-x-hidden">
       <SEO 
         title="Kariéra ve financích – Přidejte se k našemu týmu"
-        description="Hledáte novou kariérní výzvu ve financích? Nabízíme špičkové zázemí, férové odměňování a systematické vzdělávání v týmu ZFP Jagoš & Cábovi."
+        description="Hledáte novou kariérní výzvu ve financích? Nabízíme špičkové zázemí, férové odměňování a systematické vzdělávání v týmu ZFP Jagoš & partneři."
         canonical="/kariera"
       />
       

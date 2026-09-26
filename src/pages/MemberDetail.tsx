@@ -38,7 +38,7 @@ export default function MemberDetail() {
     "image": `https://zfpjagos.cz${member.imageUrl}`,
     "worksFor": {
       "@type": "FinancialService",
-      "name": "ZFP Jagoš & Cábovi",
+      "name": "ZFP Jagoš & partneři",
       "url": "https://zfpjagos.cz"
     },
     "sameAs": Object.values(member.socials || {}).filter(Boolean)
