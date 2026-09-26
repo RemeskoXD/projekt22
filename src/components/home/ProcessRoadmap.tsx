@@ -6,7 +6,7 @@ export default function ProcessRoadmap() {
   const steps = [
     {
       number: '01',
-      title: 'Vstupní diagnostika & cíle',
+      title: 'Úvodní konzultace & cíle',
       desc: 'Nezávazně si sedneme u kávy nebo online. Zmapujeme vaši aktuální finanční situaci, plány na bydlení, investice a rodinné priority.',
       icon: Search,
       badge: 'ZDARMA'
