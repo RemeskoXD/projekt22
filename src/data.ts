@@ -38,8 +38,12 @@ export const teamMembers: TeamMember[] = [
     bio: 'Postarám se o to, aby váš majetek nejen bezpečně rostl, ale byl také chráněn před inflací a neočekávanými událostmi.',
     quote: '"Správné investiční rozhodnutí dnes znamená klidnější zítřek."',
     email: 'david.jagos@zfpa.cz',
-    phone: '+420 606 084 044',
+    phone: '+420 720 114 125',
     imageUrl: '/HRK 1/David Jagos/WEB/DSC_8524-Edit.webp',
+    socials: {
+      facebook: 'https://www.facebook.com/david.jagos',
+      instagram: 'https://www.instagram.com/david.jagos/'
+    }
   },
   {
     id: 'dusan-ceresnak',
