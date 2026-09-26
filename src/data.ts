@@ -87,9 +87,11 @@ export const teamMembers: TeamMember[] = [
     quote: '"Investování není o štěstí, ale o disciplíně a správných informacích."',
     email: 'patrik.knotek@zfpa.cz',
     phone: '+420 739 150 361',
-    imageUrl: '/HRK 1/Patrik Knotek/WEB/DSC_8374.webp',
+    imageUrl: '/patrik-knotek.png',
     socials: {
-      website: 'https://www.patrikknotek.cz'
+      website: 'https://www.patrikknotek.cz',
+      facebook: 'https://www.facebook.com/patrik.knotek.3/',
+      instagram: 'https://www.instagram.com/knotek.patrik/'
     }
   },
   {
