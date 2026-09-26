@@ -115,9 +115,9 @@ export default function Home() {
 
   const services = [
     {
-      title: 'Bydlení a hypotéky',
-      description: 'Zajistíme nejlepší úroky na trhu a provedeme vás celým procesem bez zbytečného stresu.',
-      icon: HomeIcon,
+      title: 'Ochrana příjmů a rodiny',
+      description: 'Zabezpečíme vaši rodinu pro případ nečekaných událostí a výpadku financí.',
+      icon: ShieldCheck,
     },
     {
       title: 'Investice a bohatství',
@@ -125,9 +125,9 @@ export default function Home() {
       icon: TrendingUp,
     },
     {
-      title: 'Ochrana příjmů a rodiny',
-      description: 'Zabezpečíme vaši rodinu pro případ nečekaných událostí a výpadku financí.',
-      icon: ShieldCheck,
+      title: 'Bydlení a hypotéky',
+      description: 'Zajistíme nejlepší úroky na trhu a provedeme vás celým procesem bez zbytečného stresu.',
+      icon: HomeIcon,
     },
   ];
 

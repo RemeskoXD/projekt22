@@ -105,38 +105,38 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="space-y-32">
             
-            {/* Hypoteky */}
-            <div id="hypoteky" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Zajisteni prijmu */}
+            <div id="zajisteni" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal direction="left">
                 <div className="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-8 shadow-xs border border-brand-100">
-                  <Home className="w-8 h-8 text-brand-600" />
+                  <ShieldCheck className="w-8 h-8 text-brand-600" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">Bydlení a hypotéky</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6">Zajištění příjmů a ochrana rodiny</h2>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  Vlastní bydlení je jedním z nejdůležitějších životních kroků. Spolupracujeme se všemi bankami na trhu a díky našim objemům dokážeme vyjednat lepší podmínky, než kdybyste do banky šli sami.
+                  Život přináší i nečekané momenty. Správně nastavené životní pojištění ochrání vás i vaši rodinu před finančním výpadkem v případě nemoci, úrazu nebo invalidity.
                 </p>
                 <ul className="space-y-4 text-slate-700 mb-8">
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Nezávislé srovnání hypotečních nabídek napříč celým trhem.</span>
+                    <span>Analýza rizik bez zbytečného přeplácení za nepotřebná připojištění.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Kompletní vyřízení veškeré administrativy a komunikace s bankou.</span>
+                    <span>Garance finanční jistoty rodiny i při výpadku hlavního příjmu.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Refinancování a konsolidace stávajících úvěrů s nižší splátkou.</span>
+                    <span>Pomoc s řešením a asistencí při pojistných událostech.</span>
                   </li>
                 </ul>
                 <Link to="/kontakt" className="inline-flex items-center text-brand-600 font-semibold hover:text-brand-700 group">
-                  Nezávazně konzultovat hypotéku <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Zkontrolovat své pojistné smlouvy <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
               <ScrollReveal direction="right" delay={0.15} className="bg-slate-100 rounded-3xl aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" 
-                  alt="Moderní rodinný dům – financování hypotéky" 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" 
+                  alt="Finanční jistota a ochrana rodiny" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy" 
                   width="800" 
@@ -185,38 +185,38 @@ export default function Services() {
               </ScrollReveal>
             </div>
 
-            {/* Zajisteni prijmu */}
-            <div id="zajisteni" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Hypoteky */}
+            <div id="hypoteky" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal direction="left">
                 <div className="w-16 h-16 bg-brand-50 rounded-2xl flex items-center justify-center mb-8 shadow-xs border border-brand-100">
-                  <ShieldCheck className="w-8 h-8 text-brand-600" />
+                  <Home className="w-8 h-8 text-brand-600" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">Zajištění příjmů a ochrana rodiny</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6">Bydlení a hypotéky</h2>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  Život přináší i nečekané momenty. Správně nastavené životní pojištění ochrání vás i vaši rodinu před finančním výpadkem v případě nemoci, úrazu nebo invalidity.
+                  Vlastní bydlení je jedním z nejdůležitějších životních kroků. Spolupracujeme se všemi bankami na trhu a díky našim objemům dokážeme vyjednat lepší podmínky, než kdybyste do banky šli sami.
                 </p>
                 <ul className="space-y-4 text-slate-700 mb-8">
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Analýza rizik bez zbytečného přeplácení za nepotřebná připojištění.</span>
+                    <span>Nezávislé srovnání hypotečních nabídek napříč celým trhem.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Garance finanční jistoty rodiny i při výpadku hlavního příjmu.</span>
+                    <span>Kompletní vyřízení veškeré administrativy a komunikace s bankou.</span>
                   </li>
                   <li className="flex items-start">
                     <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mr-3 shrink-0 mt-0.5 font-bold text-sm">✓</div>
-                    <span>Pomoc s řešením a asistencí při pojistných událostech.</span>
+                    <span>Refinancování a konsolidace stávajících úvěrů s nižší splátkou.</span>
                   </li>
                 </ul>
                 <Link to="/kontakt" className="inline-flex items-center text-brand-600 font-semibold hover:text-brand-700 group">
-                  Zkontrolovat své pojistné smlouvy <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Nezávazně konzultovat hypotéku <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
               <ScrollReveal direction="right" delay={0.15} className="bg-slate-100 rounded-3xl aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" 
-                  alt="Finanční jistota a ochrana rodiny" 
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" 
+                  alt="Moderní rodinný dům – financování hypotéky" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy" 
                   width="800" 
