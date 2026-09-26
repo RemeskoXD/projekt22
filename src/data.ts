@@ -72,8 +72,12 @@ export const teamMembers: TeamMember[] = [
     bio: 'Pomáhám klientům správně nastavit rodinné finance a bezpečně zhodnocovat jejich úspory.',
     quote: '"Důvěra a otevřená komunikace jsou základem úspěšné finanční cesty."',
     email: 'sarka.navalana@zfpa.cz',
-    phone: '+420 606 084 044',
+    phone: '+420 731 554 487',
     imageUrl: '/HRK 1/Sarka Navalana/WEB/DSC_7124-Edit.webp',
+    socials: {
+      website: 'https://www.sarkanavalana.cz',
+      instagram: 'https://www.instagram.com/zfppreloucsi/'
+    }
   },
   {
     id: 'michaela-ivanova',

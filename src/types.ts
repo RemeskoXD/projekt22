@@ -11,6 +11,7 @@ export interface TeamMember {
     linkedin?: string;
     facebook?: string;
     instagram?: string;
+    website?: string;
   };
 }
 

@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
-import { ArrowLeft, Mail, Phone, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, Facebook, Linkedin, Instagram, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
 
 export default function MemberDetail() {
@@ -111,6 +111,11 @@ export default function MemberDetail() {
                     {member.socials.instagram && (
                       <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-pink-600 hover:border-pink-200 transition-colors shadow-sm" title="Instagram">
                         <Instagram className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.socials.website && (
+                      <a href={member.socials.website} target="_blank" rel="noreferrer noopener" aria-label={`Webové stránky: ${member.name}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-brand-600 hover:border-brand-200 transition-colors shadow-sm" title="Osobní webové stránky">
+                        <Globe className="w-4 h-4" />
                       </a>
                     )}
                     {member.socials.linkedin && (

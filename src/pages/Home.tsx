@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Facebook, Instagram, Headphones, Mic, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Facebook, Instagram, Globe, Headphones, Mic, Sparkles, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
@@ -449,6 +449,11 @@ export default function Home() {
                   {member.socials?.instagram && (
                     <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-pink-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Instagram">
                       <Instagram className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.socials?.website && (
+                    <a href={member.socials.website} target="_blank" rel="noreferrer noopener" aria-label={`Webové stránky: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Osobní webové stránky">
+                      <Globe className="w-4 h-4" />
                     </a>
                   )}
                   {member.socials?.linkedin && (

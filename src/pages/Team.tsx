@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
-import { ArrowRight, Users, Sparkles, Phone, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { ArrowRight, Users, Sparkles, Phone, Mail, Facebook, Instagram, Linkedin, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
@@ -115,6 +115,11 @@ export default function Team() {
                   {member.socials?.instagram && (
                     <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-pink-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Instagram">
                       <Instagram className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.socials?.website && (
+                    <a href={member.socials.website} target="_blank" rel="noreferrer noopener" aria-label={`Webové stránky: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Osobní webové stránky">
+                      <Globe className="w-4 h-4" />
                     </a>
                   )}
                   {member.socials?.linkedin && (
