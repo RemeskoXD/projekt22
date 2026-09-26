@@ -99,23 +99,23 @@ export default function MemberDetail() {
                 </li>
               </ul>
               
-              {member.socials && (
+              {member.socials && Object.values(member.socials).some(Boolean) && (
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <h3 className="font-semibold text-slate-900 mb-4">Sociální sítě</h3>
                   <div className="flex gap-4">
-                    {member.socials.linkedin && (
-                      <a href={member.socials.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-brand-600 hover:border-brand-200 transition-colors">
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
                     {member.socials.facebook && (
-                      <a href={member.socials.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-brand-600 hover:border-brand-200 transition-colors">
+                      <a href={member.socials.facebook} target="_blank" rel="noreferrer noopener" aria-label={`Facebook profil: ${member.name}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-colors shadow-sm" title="Facebook">
                         <Facebook className="w-4 h-4" />
                       </a>
                     )}
                     {member.socials.instagram && (
-                      <a href={member.socials.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-brand-600 hover:border-brand-200 transition-colors">
+                      <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-pink-600 hover:border-pink-200 transition-colors shadow-sm" title="Instagram">
                         <Instagram className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.socials.linkedin && (
+                      <a href={member.socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label={`LinkedIn profil: ${member.name}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-700 hover:border-blue-200 transition-colors shadow-sm" title="LinkedIn">
+                        <Linkedin className="w-4 h-4" />
                       </a>
                     )}
                   </div>

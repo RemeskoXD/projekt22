@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Instagram, Headphones, Mic, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Facebook, Instagram, Headphones, Mic, Sparkles, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
@@ -434,15 +434,25 @@ export default function Home() {
                   <p className="text-brand-600 font-medium text-sm mb-4">{member.role}</p>
                   <p className="text-slate-500 text-sm line-clamp-3 mb-6 leading-relaxed">{member.bio}</p>
                 </div>
-                <div className="flex items-center gap-2 pt-6 border-t border-slate-50">
-                  <a href={`tel:${member.phone?.replace(/\s+/g, '')}`} aria-label={`Zavolat: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors" title="Zavolat">
+                <div className="flex items-center gap-2 pt-6 border-t border-slate-100">
+                  <a href={`tel:${member.phone?.replace(/\s+/g, '')}`} aria-label={`Zavolat: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Zavolat">
                     <Phone className="w-4 h-4" />
                   </a>
                   <a href={`mailto:${member.email}`} aria-label={`Napsat e-mail: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors" title="Napsat e-mail">
                     <Mail className="w-4 h-4" />
                   </a>
+                  {member.socials?.facebook && (
+                    <a href={member.socials.facebook} target="_blank" rel="noreferrer noopener" aria-label={`Facebook profil: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-blue-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Facebook">
+                      <Facebook className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.socials?.instagram && (
+                    <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-pink-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Instagram">
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                  )}
                   {member.socials?.linkedin && (
-                    <a href={member.socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label={`LinkedIn profil: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors" title="LinkedIn">
+                    <a href={member.socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label={`LinkedIn profil: ${member.name}`} className="w-10 h-10 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-blue-700 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="LinkedIn">
                       <Linkedin className="w-4 h-4" />
                     </a>
                   )}

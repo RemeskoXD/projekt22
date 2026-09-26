@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
-import { ArrowRight, Users, Sparkles } from 'lucide-react';
+import { ArrowRight, Users, Sparkles, Phone, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
@@ -96,6 +96,31 @@ export default function Team() {
                         {member.quote}
                       </p>
                     </div>
+                  )}
+                </div>
+
+                {/* Contact & Social actions */}
+                <div className="flex items-center gap-2 pt-4 mt-2 border-t border-slate-100">
+                  <a href={`tel:${member.phone?.replace(/\s+/g, '')}`} aria-label={`Zavolat: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Zavolat">
+                    <Phone className="w-4 h-4" />
+                  </a>
+                  <a href={`mailto:${member.email}`} aria-label={`Napsat e-mail: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-brand-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Napsat e-mail">
+                    <Mail className="w-4 h-4" />
+                  </a>
+                  {member.socials?.facebook && (
+                    <a href={member.socials.facebook} target="_blank" rel="noreferrer noopener" aria-label={`Facebook profil: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-blue-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Facebook">
+                      <Facebook className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.socials?.instagram && (
+                    <a href={member.socials.instagram} target="_blank" rel="noreferrer noopener" aria-label={`Instagram profil: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-pink-600 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="Instagram">
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                  )}
+                  {member.socials?.linkedin && (
+                    <a href={member.socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label={`LinkedIn profil: ${member.name}`} className="w-9 h-9 rounded-full bg-slate-50 hover:bg-brand-50 hover:text-blue-700 text-slate-500 flex items-center justify-center transition-colors shadow-sm" title="LinkedIn">
+                      <Linkedin className="w-4 h-4" />
+                    </a>
                   )}
                 </div>
               </ScrollReveal>
