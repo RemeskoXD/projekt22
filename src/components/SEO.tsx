@@ -23,7 +23,7 @@ export default function SEO({
   image = DEFAULT_IMAGE,
   type = 'website',
   schema,
-  noindex = false,
+  noindex = true,
 }: SEOProps) {
   const location = useLocation();
   const currentUrl = canonical ? `${BASE_URL}${canonical}` : `${BASE_URL}${location.pathname}`;
@@ -59,6 +59,7 @@ export default function SEO({
     // 2. Standard Meta
     setMetaTag('name', 'description', description);
     setMetaTag('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
+    setMetaTag('name', 'googlebot', noindex ? 'noindex, nofollow' : 'index, follow');
 
     // 3. Open Graph
     setMetaTag('property', 'og:title', fullTitle);
