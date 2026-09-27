@@ -24,14 +24,14 @@ export default function Navbar() {
   return (
     <header className="bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
       <nav aria-label="Hlavní navigace" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-            <Link to="/" aria-label="ZFP GROUP Jagoš & partneři – domovská stránka" className="flex-shrink-0 flex items-center group py-2">
+        <div className="flex justify-between h-20 sm:h-24">
+            <Link to="/" aria-label="ZFP GROUP Jagoš & partneři – domovská stránka" className="flex-shrink-0 flex items-center group py-1.5 sm:py-2">
               <img
                 src="/logo-zfp-jagos-partneri.png"
                 alt="ZFP GROUP Jagoš & partneři"
-                className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-                width="165"
-                height="48"
+                className="h-13 sm:h-15 lg:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03] drop-shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+                width="221"
+                height="72"
               />
             </Link>
           

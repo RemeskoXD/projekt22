@@ -9,6 +9,8 @@ export interface SEOProps {
   type?: 'website' | 'article' | 'profile';
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
   noindex?: boolean;
+  datePublished?: string;
+  dateModified?: string;
 }
 
 const DEFAULT_TITLE = 'ZFP Jagoš & partneři | Komplexní finanční plánování, hypotéky a investice';
@@ -24,6 +26,8 @@ export default function SEO({
   type = 'website',
   schema,
   noindex = true,
+  datePublished = '2026-01-15T08:00:00+01:00',
+  dateModified = '2026-09-27T14:18:00+02:00',
 }: SEOProps) {
   const location = useLocation();
   const currentUrl = canonical ? `${BASE_URL}${canonical}` : `${BASE_URL}${location.pathname}`;
@@ -60,6 +64,14 @@ export default function SEO({
     setMetaTag('name', 'description', description);
     setMetaTag('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
     setMetaTag('name', 'googlebot', noindex ? 'noindex, nofollow' : 'index, follow');
+
+    // Freshness & Modification Signals (GEO / AI Crawlers)
+    setMetaTag('name', 'date', dateModified.slice(0, 10));
+    setMetaTag('name', 'last-modified', dateModified);
+    setMetaTag('name', 'revised', 'Neděle, 27. září 2026');
+    setMetaTag('property', 'article:published_time', datePublished);
+    setMetaTag('property', 'article:modified_time', dateModified);
+    setMetaTag('property', 'og:updated_time', dateModified);
 
     // 3. Open Graph
     setMetaTag('property', 'og:title', fullTitle);
@@ -101,7 +113,7 @@ export default function SEO({
         el.remove();
       }
     };
-  }, [fullTitle, description, currentUrl, fullImageUrl, type, schema, noindex]);
+  }, [fullTitle, description, currentUrl, fullImageUrl, type, schema, noindex, datePublished, dateModified]);
 
   return null;
 }

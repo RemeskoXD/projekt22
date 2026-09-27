@@ -9,13 +9,13 @@ export default function Footer() {
           
           <div>
             <div className="mb-6">
-              <Link to="/" className="inline-block bg-white p-2.5 rounded-2xl shadow-sm hover:opacity-95 transition-opacity">
+              <Link to="/" className="inline-block bg-white p-3 rounded-2xl shadow-sm hover:opacity-95 transition-opacity">
                 <img
                   src="/logo-zfp-jagos-partneri.png"
                   alt="ZFP GROUP Jagoš & partneři"
-                  className="h-10 w-auto object-contain"
-                  width="145"
-                  height="42"
+                  className="h-12 sm:h-13 w-auto object-contain"
+                  width="221"
+                  height="72"
                 />
               </Link>
             </div>
@@ -109,9 +109,16 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; {new Date().getFullYear()} ZFP Jagoš & partneři. Všechna práva vyhrazena.</p>
-          <div className="mt-4 md:mt-0 space-x-6">
+        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <p>&copy; {new Date().getFullYear()} ZFP Jagoš & partneři. Všechna práva vyhrazena.</p>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <div className="flex items-center text-xs text-slate-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
+              <span>Aktualizováno: <time dateTime="2026-09-27">27. září 2026</time></span>
+            </div>
+          </div>
+          <div className="space-x-6">
             <Link to="/kontakt" className="hover:text-white transition-colors">Sjednat schůzku</Link>
             <Link to="/pro-klienty" className="hover:text-white transition-colors">Hlášení pojistných událostí</Link>
           </div>
