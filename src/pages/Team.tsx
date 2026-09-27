@@ -6,6 +6,7 @@ import { ArrowRight, Users, Sparkles, Phone, Mail, Facebook, Instagram, Linkedin
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Team() {
   const teamSchema = {
@@ -58,9 +59,10 @@ export default function Team() {
         </div>
       </section>
 
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
         <AmbientBackground variant="light" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumbs items={[{ label: 'Náš tým' }]} className="mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <ScrollReveal

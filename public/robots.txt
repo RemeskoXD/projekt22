@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+# Explicit rules for AI Search & Answer Engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block aggressive commercial scrapers without attribution
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
 Sitemap: https://zfpjagos.cz/sitemap.xml

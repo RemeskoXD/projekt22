@@ -15,7 +15,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Kdo je připraven, není překvapen. Plánování je základem klidného života."',
     email: 'jaroslav.jagos@zfpa.cz',
     phone: '+420 720 114 080',
-    imageUrl: '/HRK 1/Jaroslav Jagoš/WEB/DSC_4937.webp',
+    imageUrl: '/team/jaroslav-jagos.webp',
     socials: {
       facebook: 'https://www.facebook.com/jaroslav.jagos',
       instagram: 'https://www.instagram.com/jara_jagos_efa/'
@@ -29,7 +29,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Cesta k vlastnímu bydlení a finančnímu klidu nemusí být stresující, když máte po boku spolehlivého odborníka."',
     email: 'miroslava.jagosova@zfpa.cz',
     phone: '+420 721 054 076',
-    imageUrl: '/HRK 1/Mirka Jagosova/WEB/DSC_8014-Edit.webp'
+    imageUrl: '/team/miroslava-jagosova.webp'
   },
   {
     id: 'david-jagos',
@@ -39,7 +39,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Správné investiční rozhodnutí dnes znamená klidnější zítřek."',
     email: 'david.jagos@zfpa.cz',
     phone: '+420 720 114 125',
-    imageUrl: '/HRK 1/David Jagos/WEB/DSC_8524-Edit.webp',
+    imageUrl: '/team/david-jagos.webp',
     socials: {
       facebook: 'https://www.facebook.com/david.jagos',
       instagram: 'https://www.instagram.com/david.jagos/'
@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Individuální přístup a spokojenost klienta je u mě na prvním místě."',
     email: 'dusan.ceresnak@zfpa.cz',
     phone: '+420 735 965 409',
-    imageUrl: '/HRK 1/Dušan Čerešňák/WEB/DSC_5174.webp',
+    imageUrl: '/team/dusan-ceresnak.webp',
   },
   {
     id: 'rene-kohoutek',
@@ -63,7 +63,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Bohatství se netvoří přes noc, ale systematickou a smysluplnou prací."',
     email: 'rene.kohoutek@zfpa.cz',
     phone: '+420 732 421 745',
-    imageUrl: '/HRK 1/Rene Kohoutek/WEB/DSC_8555.webp',
+    imageUrl: '/team/rene-kohoutek.webp',
   },
   {
     id: 'sarka-navalana',
@@ -73,7 +73,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Důvěra a otevřená komunikace jsou základem úspěšné finanční cesty."',
     email: 'sarka.navalana@zfpa.cz',
     phone: '+420 731 554 487',
-    imageUrl: '/HRK 1/Sarka Navalana/WEB/DSC_7124-Edit.webp',
+    imageUrl: '/team/sarka-navalana.webp',
     socials: {
       website: 'https://www.sarkanavalana.cz',
       instagram: 'https://www.instagram.com/zfppreloucsi/'
@@ -87,7 +87,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Investování není o štěstí, ale o disciplíně a správných informacích."',
     email: 'patrik.knotek@zfpa.cz',
     phone: '+420 739 150 361',
-    imageUrl: '/patrik-knotek.png',
+    imageUrl: '/team/patrik-knotek.png',
     socials: {
       website: 'https://www.patrikknotek.cz',
       facebook: 'https://www.facebook.com/patrik.knotek.3/',
@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Finanční svoboda začíná porozuměním vlastním penězům."',
     email: 'dominik.konecny@zfpa.cz',
     phone: '+420 704 076 937',
-    imageUrl: '/HRK 1/Dominik Konečný/WEB/DSC_7256-Edit.webp',
+    imageUrl: '/team/dominik-konecny.webp',
   },
   {
     id: 'katerina-lenghartova',
@@ -112,7 +112,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Kvalitní poradenství je o naslouchání a hledání nejlepší cesty pro klienta."',
     email: 'katerina.lenghartova@zfpa.cz',
     phone: '+420 774 959 062',
-    imageUrl: '/HRK 1/Kateřina Lenghartová/WEB/DSC_7130-Edit.webp',
+    imageUrl: '/team/katerina-lenghartova.webp',
   },
   {
     id: 'jaromir-manak',
@@ -122,7 +122,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Úspěch ve financích je výsledkem promyšlené strategie a dlouhodobé disciplíny."',
     email: 'jaromir.manak@zfpa.cz',
     phone: '+420 606 572 899',
-    imageUrl: '/HRK 1/Jaromir Manak/WEB/DSC_7991.webp',
+    imageUrl: '/team/jaromir-manak.webp',
   },
   {
     id: 'kristyna-rancikova',
@@ -132,7 +132,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"S poctivým přístupem a jasným plánem lze dosáhnout každého finančního snu."',
     email: 'kristyna.rancikova@zfpa.cz',
     phone: '+420 607 396 112',
-    imageUrl: '/kristyna-rancikova.png',
+    imageUrl: '/team/kristyna-rancikova.png',
     socials: {
       facebook: 'https://www.facebook.com/kristyna.rancikova',
       instagram: 'https://www.instagram.com/rancicena'
@@ -191,8 +191,7 @@ export const reviews: Review[] = [
     id: '2',
     clientName: 'Petr a Jana Svobodovi',
     text: 'Chtěli bychom poděkovat za pomoc při vyřizování hypotéky. Vše proběhlo hladce a ušetřili nám spoustu času a nervů.',
-    rating: 5,
-    videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Placeholder
+    rating: 5
   },
   {
     id: '3',
@@ -204,27 +203,51 @@ export const reviews: Review[] = [
 
 export const blogPosts: BlogPost[] = [
   {
-    id: '1',
-    title: 'Jak se připravit na hypotéku v roce 2026',
-    excerpt: 'Úrokové sazby se mění, pravidla bank také. Na co si dát letos pozor, pokud plánujete vlastní bydlení?',
-    content: 'Zde bude kompletní text článku...',
-    date: '20. června 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800'
+    id: 'jak-se-pripravit-na-hypoteku-2026',
+    title: 'Jak se připravit na hypotéku v roce 2026: Kompletní průvodce financováním bydlení',
+    excerpt: 'Úrokové sazby se vyvíjejí a banky upravují pravidla posuzování bonity. Na co si dát pozor a jak ušetřit statisíce korun při sjednání vlastního bydlení?',
+    content: `Pořízení vlastního bydlení patří mezi nejvýznamnější finanční rozhodnutí v životě. V roce 2026 se český hypoteční trh nachází v dynamickém období, kdy banky bedlivě sledují vývoj inflace a základních úrokových sazeb ČNB. Přestože se podmínky mohou na první pohled zdát přísné, správně připravený žadatel může dosáhnout na výrazně výhodnější podmínky, než jaké banky běžně inzerují na svých přepážkách.
+
+Prvním a zcela zásadním krokem je včasný audit bonity. Banky dnes detailně posuzují nejen výši oficiálních příjmů, ale především jejich stabilitu a strukturu pravidelných výdajů. Mezi časté komplikace patří například nevyužívané kreditní karty či kontokorenty, které bankovní registry chápou jako potenciální závazek a snižují tak vaši úvěrovou kapacitu. Doporučujeme tyto produkty zrušit alespoň tři měsíce před podáním žádosti.
+
+Druhým pilířem je volba vhodné délky fixace. V prostředí kolísajících sazeb se vyplatí pečlivě zvážit rozdíl mezi tříletou a pětiletou fixací. Krátká fixace vám nabízí flexibilitu a možnost dřívějšího refinancování v případě poklesu tržních sazeb, zatímco delší fixace přináší rozpočtovou jistotu stabilní měsíční splátky. Neexistuje univerzální rada – vždy záleží na vaší rodinné rezervě a ochotě nést úrokové riziko.
+
+Třetím klíčovým faktorem je nezávislé porovnání celého trhu. Když přijdete do jedné konkrétní banky, její úvěrový specialista vám vždy nabídne pouze produkty své mateřské instituce. My v ZFP Jagoš & partneři máme přímý přístup do všech významných hypotečních bank v České republice a ve spolupráci s platformou HypoSpace.cz dokážeme v reálném čase porovnat nabídky, vyjednat individuální slevy z úrokové sazby a často zajistit odhad nemovitosti zcela zdarma.
+
+Nezapomeňte také na vlastní zdroje. Podle aktuálních regulatorních pravidel je standardně vyžadováno minimálně 10–20 % z kupní ceny nemovitosti (LTV 80–90 %). Pokud tyto prostředky nemáte v hotovosti, existují legální a bezpečné cesty dofinancování – například využitím další nemovitosti v rodině nebo kombinací s účelovým stavebním spořením. Rádi s vámi celou strategii projdeme na osobní schůzce v naší kanceláři ve Veselí nad Moravou.`,
+    date: '15. září 2026',
+    imageUrl: '/DSC_4749-Enhanced-NR.webp'
   },
   {
-    id: '2',
-    title: 'Proč je důležité mít finanční plán',
-    excerpt: 'Většina lidí plánuje dovolenou déle než své finance. Proč je to chyba a jak s plánováním začít?',
-    content: 'Zde bude kompletní text článku...',
-    date: '10. června 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800'
+    id: 'proc-je-dulezite-mit-financni-plan',
+    title: 'Proč je finanční plán základem rodinného klidu a jak jej sestavit',
+    excerpt: 'Většina lidí plánuje dovolenou déle než své celoživotní zabezpečení. Proč je to zásadní chyba a jak vytvořit strategii, která obstojí v každé krizi?',
+    content: `Je překvapivým faktem moderní doby, že průměrná česká rodina stráví desítky hodin výběrem letní dovolené, ale strategii pro správu vlastních celoživotních úspor nevěnuje téměř žádný systematický čas. Výsledkem bývají neřízené výdaje, nevhodně nastavené smlouvy z minulosti a neustálý podvědomý stres z budoucnosti.
+
+Smysluplný finanční plán není o tom, abyste si odpírali každodenní radosti. Je to architektonický plán vašeho majetku, který vám dává jasnou mapu a odpověď na otázky: Kolik musím odkládat, abych zajistil vzdělání dětem? Kdy si budu moci dovolit splatit hypotéku? A jaký měsíční pasivní příjem budu mít v 55 nebo 60 letech?
+
+Základem každého zdravého plánu jsou tzv. tři peněžní pilíře. Prvním je pohotovostní rezerva – částka ve výši 3 až 6 měsíčních rodinných výdajů uložená na likvidním účtu, která slouží výhradně pro nečekané situace (oprava auta, výměna spotřebiče). Druhým pilířem je střednědobá rezerva (na 3 až 7 let), která chrání úspory před inflací prostřednictvím konzervativnějších nástrojů a realitních fondů. Třetím pilířem je dlouhodobý majetek na 10 a více let, kde naplno využíváme sílu složeného úročení a dynamických investic.
+
+Součástí plánu musí být také nekompromisní ochrana rodinných příjmů. Největším aktivem mladé rodiny není dům ani auto, ale její schopnost vydělávat peníze. Pokud vypadne hlavní živitel rodiny kvůli úrazu či dlouhodobé nemoci, hypotéka a běžné účty nezmizí. Kvalitní audit životního pojištění má za cíl pokrýt skutečně katastrofická rizika (invalidita III. a II. stupně, trvalé následky) a odbourat zbytečná drahá připojištění drobných úrazů.
+
+V ZFP Jagoš & partneři stavíme finanční plány na pevných datech a otevřené komunikaci. Každý klient od nás odchází s přehlednou analýzou stávajících smluv a jasným doporučením kroků, které vedou k měřitelnému růstu čistého rodinného jmění.`,
+    date: '2. září 2026',
+    imageUrl: '/spolecna-2-scaled.webp'
   },
   {
-    id: '3',
-    title: 'Investování pro začátečníky',
-    excerpt: 'Bojíte se investovat? Ukážeme vám, že to není tak složité, jak se na první pohled zdá.',
-    content: 'Zde bude kompletní text článku...',
-    date: '1. června 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&q=80&w=800'
+    id: 'investovani-pro-zacatecniky-jak-ochranit-uspory',
+    title: 'Investování pro začátečníky: Jak bezpečně chránit úspory před inflací',
+    excerpt: 'Bojíte se investovat a necháváte peníze na běžném účtu? Ukážeme vám, proč je nečinnost největším rizikem a jak krok za krokem začít.',
+    content: `Po letech vysoké inflace si většina Čechů uvědomila krutou pravdu: nechat peníze ležet na běžném účtu nebo standardním spořicím účtu znamená garantovanou ztrátu kupní síly. Inflace je tichý zloděj, který z každých uspořených 100 000 Kč během několika let ukrojí významnou část hodnoty. Jedinou skutečnou obranou je promyšlené a disciplinované investování.
+
+Mnoho lidí má z investování strach, protože si pod ním představují riskantní spekulace na burze nebo nepřehledné kryptoměny. Skutečné bohatství se však netvoří hazardem, nýbrž systematickou prací s prověřenými aktivy. Mezi základní stavební kameny moderního portfolia patří globálně diverzifikované akciové fondy, realitní fondy a fyzické drahé kovy.
+
+Klíčovým konceptem, který hraje ve váš prospěch, je složené úročení – to, co Albert Einstein údajně označil za osmý div světa. Když své výnosy znovu reinvestujete, úroky začnou generovat další úroky. Při pravidelném horizontu 15 či 20 let tvoří složené úročení často větší část celkového majetku než samotné vámi vložené peníze.
+
+Důležitou součástí portfolia našich klientů jsou také prověřené realitní fondy ZFP Investments, které investují do prémiových komerčních a logistických nemovitostí v České republice i střední Evropě. Přinášejí stabilní výnos opřený o reálné nájemní smlouvy. Pro maximální stabilitu v turbulentních časech pak doporučujeme držet část úspor ve fyzickém investičním zlatě (ZFP Gold) nejvyšší certifikované ryzosti.
+
+Začít s investováním přitom nevyžaduje miliony v kapse. Pravidelný investiční program lze odstartovat již od 1 000 Kč měsíčně. Naši experti vám pomohou nastavit portfolio přesně podle vašeho rizikového profilu tak, abyste mohli v noci klidně spát a vaše peníze pracovaly pro vás.`,
+    date: '18. srpna 2026',
+    imageUrl: '/DSC_4699_o.webp'
   }
 ];

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Services() {
   const [investAmount, setInvestAmount] = useState(100000);
@@ -100,9 +101,10 @@ export default function Services() {
       </section>
 
       {/* Services List */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
         <AmbientBackground variant="light" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumbs items={[{ label: 'Naše služby' }]} className="mb-12" />
           <div className="space-y-32">
             
             {/* Zajisteni prijmu */}
@@ -135,7 +137,7 @@ export default function Services() {
               </ScrollReveal>
               <ScrollReveal direction="right" delay={0.15} className="bg-slate-100 rounded-3xl aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" 
+                  src="/DSC_4749-Enhanced-NR.webp" 
                   alt="Finanční jistota a ochrana rodiny" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy" 
@@ -149,7 +151,7 @@ export default function Services() {
             <div id="investice" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <ScrollReveal direction="left" className="order-2 lg:order-1 bg-slate-100 rounded-3xl aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?auto=format&fit=crop&q=80&w=800" 
+                  src="/DSC_4699_o.webp" 
                   alt="Investice a správa finančního majetku" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy" 
@@ -215,8 +217,8 @@ export default function Services() {
               </ScrollReveal>
               <ScrollReveal direction="right" delay={0.15} className="bg-slate-100 rounded-3xl aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" 
-                  alt="Moderní rodinný dům – financování hypotéky" 
+                  src="/spolecna-2-scaled.webp" 
+                  alt="Moderní financování bydlení – tým ZFP Jagoš & partneři" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   loading="lazy" 
                   width="800" 

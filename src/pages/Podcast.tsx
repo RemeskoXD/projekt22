@@ -3,6 +3,7 @@ import { Mic, Headphones, Play, ExternalLink, Sparkles, Youtube, Radio, CheckCir
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Podcast() {
   const podcastSchema = {
@@ -164,9 +165,10 @@ export default function Podcast() {
       </section>
 
       {/* Spotify Live Player & Topics */}
-      <section className="py-24 bg-slate-50 border-b border-slate-100 relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-slate-50 border-b border-slate-100 relative overflow-hidden">
         <AmbientBackground variant="light" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumbs items={[{ label: 'Podcast' }]} className="mb-8" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Embedded Spotify Widget */}

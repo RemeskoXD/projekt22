@@ -1,21 +1,27 @@
 import { motion } from 'motion/react';
-import { Target, Users, BookOpen, Handshake, CheckCircle, AlertCircle, Sparkles, Briefcase } from 'lucide-react';
+import { Target, Users, BookOpen, Handshake, CheckCircle, AlertCircle, Sparkles, Briefcase, Send, Phone } from 'lucide-react';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Career() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = 'Jméno je povinné';
+    if (!formData.name.trim()) newErrors.name = 'Jméno a příjmení je povinné pole';
     if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Zadejte platný e-mail';
     if (!formData.phone.trim() || !/^(\+420)? ?[1-9][0-9]{2} ?[0-9]{3} ?[0-9]{3}$/.test(formData.phone)) newErrors.phone = 'Zadejte platné telefonní číslo';
+    if (!consent) newErrors.consent = 'Pro odeslání je nutný souhlas se zpracováním osobních údajů';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -26,13 +32,32 @@ export default function Career() {
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
-      // Simulate network submission (ready for API integration)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const endpoint = import.meta.env.VITE_CAREER_API_URL || '/api/career';
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          consent,
+          honeypot
+        })
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || (result && result.success === false)) {
+        throw new Error(result?.error || `Chyba při odesílání (${response.status})`);
+      }
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
+      setConsent(false);
+    } catch (err: any) {
+      console.warn('Career form submission error:', err);
+      setErrorMessage(err?.message || 'Něco se pokazilo při odesílání.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -93,9 +118,10 @@ export default function Career() {
       </section>
 
       {/* Why join us */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
         <AmbientBackground variant="light" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <Breadcrumbs items={[{ label: 'Kariéra' }]} className="mb-12" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
             {benefits.map((benefit, index) => (
               <ScrollReveal
@@ -177,17 +203,75 @@ export default function Career() {
                 ></textarea>
               </div>
               
+              {/* Anti-spam honeypot */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website_career">Nevyplňujte toto pole</label>
+                <input 
+                  type="text" 
+                  id="website_career" 
+                  name="website_career"
+                  tabIndex={-1} 
+                  autoComplete="off" 
+                  value={honeypot} 
+                  onChange={(e) => setHoneypot(e.target.value)} 
+                />
+              </div>
+
+              {/* GDPR Consent */}
+              <div className="pt-1">
+                <div className="flex items-start">
+                  <input
+                    id="career_consent"
+                    name="career_consent"
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="h-4 w-4 mt-1 rounded border-slate-700 bg-slate-800 text-brand-600 focus:ring-brand-500 cursor-pointer"
+                  />
+                  <label htmlFor="career_consent" className="ml-3 text-xs text-slate-300 leading-relaxed cursor-pointer">
+                    Souhlasím se zpracováním osobních údajů v souladu se{' '}
+                    <Link to="/ochrana-osobnich-udaju" target="_blank" className="text-brand-400 hover:underline font-semibold">
+                      Zásadami ochrany osobních údajů
+                    </Link>{' '}
+                    za účelem vyhodnocení kariérního zájmu. *
+                  </label>
+                </div>
+                {errors.consent && <p className="text-red-400 text-sm mt-1">{errors.consent}</p>}
+              </div>
+
               {submitStatus === 'success' && (
-                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-lg flex items-center">
+                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-xl flex items-center">
                   <CheckCircle className="w-5 h-5 mr-3 shrink-0" />
-                  Děkujeme! Váš zájem byl úspěšně odeslán. Brzy se vám ozveme.
+                  <div>
+                    <strong className="block font-semibold">Děkujeme! Váš zájem byl úspěšně zaznamenán.</strong>
+                    <span className="text-xs text-emerald-300">Brzy se vám osobně ozveme a domluvíme nezávaznou kávu.</span>
+                  </div>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg flex items-center">
-                  <AlertCircle className="w-5 h-5 mr-3 shrink-0" />
-                  Něco se pokazilo. Zkuste to prosím znovu nebo nám zavolejte.
+                <div className="bg-amber-500/10 border border-amber-500/30 text-amber-200 p-4 rounded-xl text-sm">
+                  <div className="flex items-center gap-2 mb-2 font-bold text-white">
+                    <AlertCircle className="w-5 h-5 text-amber-400 shrink-0" />
+                    <span>Odeslání se nezdařilo</span>
+                  </div>
+                  <p className="text-xs text-amber-200/90 mb-3">
+                    {errorMessage || 'Server je dočasně nedostupný.'} Můžete nám napsat přímo na e-mail nebo zavolat:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={`mailto:info@zfpjagos.cz?subject=Kariéra v ZFP Jagoš (${encodeURIComponent(formData.name || 'Zájemce')})&body=${encodeURIComponent(`Dobrý den,\n\nJméno: ${formData.name}\nTelefon: ${formData.phone}\nE-mail: ${formData.email}\n\nZpráva:\n${formData.message}`)}`}
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-brand-600 text-white font-semibold text-xs hover:bg-brand-500 transition-colors"
+                    >
+                      <Send className="w-3.5 h-3.5 mr-1.5" /> Napsat e-mailem (info@zfpjagos.cz)
+                    </a>
+                    <a
+                      href="tel:+420606084044"
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-800 text-white font-semibold text-xs hover:bg-slate-700 transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 mr-1.5" /> Zavolat: +420 606 084 044
+                    </a>
+                  </div>
                 </div>
               )}
 

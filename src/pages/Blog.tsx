@@ -3,6 +3,7 @@ import { blogPosts } from '../data';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Blog() {
   const blogSchema = {
@@ -44,8 +45,9 @@ export default function Blog() {
       </section>
 
       {/* Posts */}
-      <section className="py-24">
+      <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: 'Blog a aktuality' }]} className="mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, i) => (
               <motion.article

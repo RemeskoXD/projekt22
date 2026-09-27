@@ -5,6 +5,8 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 import { ArrowLeft, Mail, Phone, Facebook, Linkedin, Instagram, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
 
+import Breadcrumbs from '../components/Breadcrumbs';
+
 export default function MemberDetail() {
   const { id } = useParams<{ id: string }>();
   const member = teamMembers.find(m => m.id === id);
@@ -55,8 +57,15 @@ export default function MemberDetail() {
         schema={personSchema}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <Link to="/tym" className="inline-flex items-center text-slate-500 hover:text-slate-900 transition-colors mb-12 font-medium">
+        <Breadcrumbs 
+          items={[
+            { label: 'Náš tým', href: '/tym' },
+            { label: member.name }
+          ]}
+          className="mb-4"
+        />
+
+        <Link to="/tym" className="inline-flex items-center text-slate-500 hover:text-slate-900 transition-colors mb-10 font-medium">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Zpět na přehled týmu
         </Link>

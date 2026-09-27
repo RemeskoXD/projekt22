@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { FileText, Link as LinkIcon, ShieldAlert, ExternalLink, Download } from 'lucide-react';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function ClientZone() {
   const providers = [
@@ -38,8 +39,9 @@ export default function ClientZone() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: 'Pro klienty' }]} className="mb-10" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             
             {/* Documents */}

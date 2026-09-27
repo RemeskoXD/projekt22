@@ -20,11 +20,21 @@ export default function CountUp({
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [displayValue, setDisplayValue] = useState('0');
+  
+  // Format target number immediately so SSR/crawlers and initial render show real data instead of "0"
+  const formattedFinal = new Intl.NumberFormat('cs-CZ', {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  }).format(to);
+
+  const [displayValue, setDisplayValue] = useState(formattedFinal);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
 
+    // Start counter animation smoothly from 0 to final target
     const controls = animate(0, to, {
       duration,
       ease: [0.16, 1, 0.3, 1], // Smooth exponential ease-out

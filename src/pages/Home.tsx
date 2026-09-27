@@ -187,18 +187,24 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="relative bg-slate-950 pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden min-h-[95vh] flex flex-col justify-center border-b border-slate-800">
-        {/* Parallax Hero Image */}
+        {/* Parallax Hero Image with Responsive Mobile/Tablet/Desktop Sources */}
         <motion.div 
           style={{ y: heroImageY, scale: heroImageScale }} 
           className="absolute inset-0 will-change-transform"
         >
-          <img 
-            src="/spolecna-2-scaled.webp?v=1" 
-            alt="Tým finančních poradců ZFP Jagoš & partneři" 
-            className="w-full h-full object-cover object-top opacity-35"
-            loading="eager"
-            fetchPriority="high"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/spolecna-2-mobile.webp" type="image/webp" />
+            <source media="(max-width: 1024px)" srcSet="/spolecna-2-tablet.webp" type="image/webp" />
+            <img 
+              src="/spolecna-2-scaled.webp" 
+              alt="Tým finančních poradců ZFP Jagoš & partneři" 
+              className="w-full h-full object-cover object-top opacity-35"
+              loading="eager"
+              fetchPriority="high"
+              width="2560"
+              height="1440"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40" />
         </motion.div>
 
@@ -326,7 +332,7 @@ export default function Home() {
 
             <ScrollReveal direction="right" delay={0.2} className="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-2xl min-h-[420px] group">
               <img 
-                src={getImageUrl("/HRK 1/Jaroslav Jagoš/WEB/DSC_4937.webp")} 
+                src="/team/jaroslav-jagos.webp" 
                 alt="Bc. Jaroslav Jagoš, EFA – ředitel obchodního týmu ZFP Jagoš & partneři" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 loading="lazy"
@@ -511,7 +517,7 @@ export default function Home() {
         <div className="max-w-md mx-auto px-4 text-center">
           <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-6 shadow-md border-4 border-white bg-slate-100">
             <img 
-              src={getImageUrl("/HRK 1/Jaroslav Jagoš/WEB/DSC_4937.webp")} 
+              src="/team/jaroslav-jagos.webp" 
               alt="Bc. Jaroslav Jagoš, EFA" 
               className="w-full h-full object-cover" 
               width="96" 

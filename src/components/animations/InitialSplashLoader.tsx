@@ -92,9 +92,9 @@ export default function InitialSplashLoader({ children }: InitialSplashLoaderPro
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mb-8"
               >
-                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1.5 font-sans">
+                <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1.5 font-sans" role="heading" aria-level={2}>
                   ZFP <span className="bg-gradient-to-r from-brand-400 to-amber-300 bg-clip-text text-transparent">Jagoš & partneři</span>
-                </h1>
+                </div>
                 <p className="text-xs sm:text-sm text-slate-400 tracking-widest uppercase font-medium">
                   Komplexní finanční plánování
                 </p>

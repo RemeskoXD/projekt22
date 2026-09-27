@@ -109,7 +109,14 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+        {/* Legal Regulatory Disclaimer & ČNB registration */}
+        <div className="border-t border-slate-800/80 mt-12 pt-6 text-xs text-slate-500 leading-relaxed">
+          <p>
+            <strong className="text-slate-400">Právní doložka a regulace ČNB:</strong> ZFP Jagoš & partneři je strukturní poradenská kancelář skupiny ZFP Group. Poradenské a zprostředkovatelské služby jsou poskytovány v pozici vázaného zástupce zapsaného v registru České národní banky (ČNB) pro samostatného zprostředkovatele <strong className="text-slate-400">ZFP akademie, a.s.</strong>, IČO: 26307961 (spotřebitelské úvěry dle zákona č. 257/2016 Sb., distribuce pojištění dle zákona č. 170/2018 Sb., doplňkové penzijní spoření dle zákona č. 427/2011 Sb. a investiční služby dle zákona č. 256/2004 Sb.).
+          </p>
+        </div>
+        
+        <div className="border-t border-slate-800 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <p>&copy; {new Date().getFullYear()} ZFP Jagoš & partneři. Všechna práva vyhrazena.</p>
             <span className="hidden sm:inline text-slate-700">•</span>
@@ -118,9 +125,10 @@ export default function Footer() {
               <span>Aktualizováno: <time dateTime="2026-09-27">27. září 2026</time></span>
             </div>
           </div>
-          <div className="space-x-6">
-            <Link to="/kontakt" className="hover:text-white transition-colors">Sjednat schůzku</Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link to="/ochrana-osobnich-udaju" className="hover:text-white transition-colors">Ochrana osobních údajů (GDPR)</Link>
             <Link to="/pro-klienty" className="hover:text-white transition-colors">Hlášení pojistných událostí</Link>
+            <Link to="/kontakt" className="hover:text-white transition-colors">Sjednat schůzku</Link>
           </div>
         </div>
       </div>

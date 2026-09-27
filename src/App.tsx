@@ -15,7 +15,9 @@ import ClientZone from './pages/ClientZone';
 import Blog from './pages/Blog';
 import BlogPostDetail from './pages/BlogPostDetail';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
+import CookieBanner from './components/CookieBanner';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -44,9 +46,11 @@ export default function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<BlogPostDetail />} />
           <Route path="kontakt" element={<Contact />} />
+          <Route path="ochrana-osobnich-udaju" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <CookieBanner />
     </BrowserRouter>
   );
 }

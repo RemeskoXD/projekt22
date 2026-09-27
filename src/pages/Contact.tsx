@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle, MessageSquare, Send } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -17,6 +22,7 @@ export default function Contact() {
     if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Zadejte platný e-mail';
     if (!formData.phone.trim() || !/^(\+420)? ?[1-9][0-9]{2} ?[0-9]{3} ?[0-9]{3}$/.test(formData.phone)) newErrors.phone = 'Zadejte platné telefonní číslo (např. +420 606 084 044)';
     if (!formData.message.trim()) newErrors.message = 'Napište nám prosím krátkou zprávu';
+    if (!consent) newErrors.consent = 'Pro odeslání je nutný souhlas se zpracováním osobních údajů';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -27,13 +33,32 @@ export default function Contact() {
     
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
-      // Simulate network request (ready for backend endpoint)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const endpoint = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          consent,
+          honeypot
+        })
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || (result && result.success === false)) {
+        throw new Error(result?.error || `Chyba při odesílání (${response.status})`);
+      }
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
+      setConsent(false);
+    } catch (err: any) {
+      console.warn('Form submission error:', err);
+      setErrorMessage(err?.message || 'Něco se pokazilo při odesílání.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -104,7 +129,8 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 relative">
+        <Breadcrumbs items={[{ label: 'Kontakt' }]} className="mb-8" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Contact Info */}
           <ScrollReveal direction="left">
@@ -223,24 +249,82 @@ export default function Contact() {
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
 
+              {/* Anti-spam honeypot */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Nevyplňujte toto pole</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
+              {/* GDPR Consent */}
+              <div className="pt-2">
+                <div className="flex items-start">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="h-4 w-4 mt-1 rounded border-slate-300 text-brand-600 focus:ring-brand-500 cursor-pointer"
+                  />
+                  <label htmlFor="consent" className="ml-3 text-xs sm:text-sm text-slate-600 leading-relaxed cursor-pointer">
+                    Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky a sjednání schůzky v souladu se{' '}
+                    <Link to="/ochrana-osobnich-udaju" target="_blank" className="text-brand-600 hover:underline font-semibold">
+                      Zásadami ochrany osobních údajů
+                    </Link>
+                    . *
+                  </label>
+                </div>
+                {errors.consent && <p className="text-red-500 text-sm mt-1">{errors.consent}</p>}
+              </div>
+
               {submitStatus === 'success' && (
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 p-4 rounded-lg flex items-center">
-                  <CheckCircle className="w-5 h-5 mr-3 shrink-0" />
-                  Děkujeme! Vaše zpráva byla úspěšně odeslána. Brzy se vám ozveme zpět.
+                <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 p-4 rounded-xl flex items-center">
+                  <CheckCircle className="w-5 h-5 mr-3 shrink-0 text-emerald-600" />
+                  <div>
+                    <strong className="block font-semibold">Děkujeme! Vaše zpráva byla úspěšně odeslána.</strong>
+                    <span className="text-xs text-emerald-800">Brzy se vám ozveme zpět s návrhem termínu.</span>
+                  </div>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg flex items-center">
-                  <AlertCircle className="w-5 h-5 mr-3 shrink-0" />
-                  Něco se pokazilo. Zkuste to prosím znovu nebo nám zavolejte na +420 606 084 044.
+                <div className="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl text-sm">
+                  <div className="flex items-center gap-2 mb-2 font-bold text-amber-950">
+                    <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
+                    <span>Odeslání přes formulář se nezdařilo</span>
+                  </div>
+                  <p className="text-xs text-amber-800 mb-3">
+                    {errorMessage || 'Server je dočasně nedostupný.'} Můžete nám zprávu odeslat přímo e-mailem nebo nám rovnou zavolat:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={`mailto:info@zfpjagos.cz?subject=Poptávka ze zfpjagos.cz (${encodeURIComponent(formData.name || 'Klient')})&body=${encodeURIComponent(`Dobrý den,\n\nJméno: ${formData.name}\nTelefon: ${formData.phone}\nE-mail: ${formData.email}\n\nZpráva:\n${formData.message}`)}`}
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-brand-600 text-white font-semibold text-xs hover:bg-brand-700 transition-colors"
+                    >
+                      <Send className="w-3.5 h-3.5 mr-1.5" /> Odeslat e-mailem (info@zfpjagos.cz)
+                    </a>
+                    <a
+                      href="tel:+420606084044"
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 mr-1.5" /> Zavolat: +420 606 084 044
+                    </a>
+                  </div>
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-base font-semibold text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 {isSubmitting ? 'Odesílám zprávu...' : 'Odeslat zprávu'}
               </button>
