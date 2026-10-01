@@ -237,8 +237,8 @@ const routes = [
             <h2 class="text-3xl font-bold">Hypoteční kalkulačka HypoSpace.cz</h2>
             <p class="text-slate-300 text-sm mt-2">Nezávislé porovnání splátek a úrokových sazeb všech bank na českém trhu.</p>
           </div>
-          <div id="hypospace-calculator-sales" class="bg-white rounded-2xl p-6 text-slate-900 min-h-[400px]">
-            <p class="text-center text-slate-500 py-12">Načítám oficiální kalkulačku HypoSpace.cz...</p>
+          <div class="bg-white rounded-2xl p-6 text-slate-900 min-h-[400px]">
+            <p class="text-center text-slate-500 py-12">Oficiální hypoteční kalkulačka HypoSpace.cz – kalkulace se načte v prohlížeči.</p>
           </div>
         </div>
       </section>

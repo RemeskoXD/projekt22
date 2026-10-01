@@ -3,6 +3,7 @@ import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
 import ScrollProgressBar from './animations/ScrollProgressBar';
 import InitialSplashLoader from './animations/InitialSplashLoader';
+import ErrorBoundary from './ErrorBoundary';
 
 export default function Layout() {
   return (
@@ -17,7 +18,9 @@ export default function Layout() {
         </a>
         <Navbar />
         <main id="main-content" className="flex-grow">
-          <Outlet />
+          <ErrorBoundary showHomeLink={true}>
+            <Outlet />
+          </ErrorBoundary>
         </main>
         <Footer />
       </div>

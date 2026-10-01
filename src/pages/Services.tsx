@@ -6,6 +6,7 @@ import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import Breadcrumbs from '../components/Breadcrumbs';
 import CalculatorSuite from '../components/calculators/CalculatorSuite';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 export default function Services() {
 
@@ -208,7 +209,12 @@ export default function Services() {
       {/* Comprehensive Interactive Calculator Suite (HypoSpace, ZFP Investments, ZFP Reality) */}
       <section id="kalkulacka" className="py-20 sm:py-28 bg-slate-900 text-white scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <CalculatorSuite defaultTab="mortgage" />
+          <ErrorBoundary
+            fallbackTitle="Hypoteční a investiční kalkulačka"
+            fallbackDescription="Kalkulačku HypoSpace se nepodařilo inicializovat v tomto zobrazení. Můžete přejít přímo na portál HypoSpace.cz nebo si s námi sjednat nezávaznou konzultaci."
+          >
+            <CalculatorSuite defaultTab="mortgage" />
+          </ErrorBoundary>
         </div>
       </section>
 

@@ -19,30 +19,36 @@ export default function MortgageCalculator() {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
+    let isMounted = true;
     const SCRIPT_URL = 'https://hypospace.cz/wp-content/cache/autoptimize/js/autoptimize_single_aeda9edc180772cf0aecb84bd262ff35.js';
     const SCRIPT_ID = 'hypospace-sales-calculator-script';
 
     const renderWidget = () => {
       try {
-        const target = document.getElementById('hypospace-calculator-sales');
+        const target = containerRef.current || document.getElementById('hypospace-calculator-sales');
         if (target && window.HypoSpaceCalculatorSales?.render) {
-          // If the widget is not already rendered inside target
+          // Render widget into target if not already rendered
           if (!target.querySelector('.mort-calc')) {
             window.HypoSpaceCalculatorSales.render(target);
           }
-          setLoaded(true);
+          if (isMounted) setLoaded(true);
         }
       } catch (err) {
         console.error('Error rendering HypoSpace calculator:', err);
-        setError(true);
+        if (isMounted) setError(true);
       }
     };
 
     // If script is already loaded and ready
     if (window.HypoSpaceCalculatorSales) {
-      // Small timeout to allow DOM element to be fully attached
       const timer = setTimeout(renderWidget, 50);
-      return () => clearTimeout(timer);
+      return () => {
+        isMounted = false;
+        clearTimeout(timer);
+        if (containerRef.current) {
+          containerRef.current.innerHTML = '';
+        }
+      };
     }
 
     // Check if script tag already exists in DOM
@@ -51,37 +57,47 @@ export default function MortgageCalculator() {
       script = document.createElement('script');
       script.id = SCRIPT_ID;
       script.src = SCRIPT_URL;
-      script.defer = true;
       script.async = true;
       script.onload = () => {
-        setTimeout(renderWidget, 100);
+        if (isMounted) setTimeout(renderWidget, 50);
       };
       script.onerror = (e) => {
         console.error('Failed to load HypoSpace widget script:', e);
-        setError(true);
+        if (isMounted) setError(true);
       };
-      document.body.appendChild(script);
+      document.head.appendChild(script);
     } else {
       // Script tag exists, poll briefly until global is defined
       const interval = setInterval(() => {
         if (window.HypoSpaceCalculatorSales) {
           clearInterval(interval);
-          renderWidget();
+          if (isMounted) renderWidget();
         }
-      }, 80);
+      }, 60);
 
       const timeout = setTimeout(() => {
         clearInterval(interval);
-        if (!window.HypoSpaceCalculatorSales) {
+        if (!window.HypoSpaceCalculatorSales && isMounted) {
           setError(true);
         }
       }, 6000);
 
       return () => {
+        isMounted = false;
         clearInterval(interval);
         clearTimeout(timeout);
+        if (containerRef.current) {
+          containerRef.current.innerHTML = '';
+        }
       };
     }
+
+    return () => {
+      isMounted = false;
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+      }
+    };
   }, []);
 
   return (
@@ -116,44 +132,50 @@ export default function MortgageCalculator() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* HypoSpace Widget Container */}
-        <div className="lg:col-span-7 bg-white rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-200 text-slate-900 min-h-[580px] flex flex-col justify-center">
-          {/* Target Element for HypoSpace shortcode */}
-          <div id="hypospace-calculator-sales" ref={containerRef} className="w-full">
-            {!loaded && !error && (
-              <div className="py-24 text-center text-slate-500">
-                <RefreshCw className="w-9 h-9 animate-spin mx-auto mb-4 text-brand-600" />
-                <p className="text-base font-semibold text-slate-800">Načítám hypoteční kalkulačku HypoSpace...</p>
-                <p className="text-xs text-slate-500 mt-1">Stahuji aktuální úrokové sazby všech bank v ČR</p>
-              </div>
-            )}
+        <div className="lg:col-span-7 bg-white rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-200 text-slate-900 min-h-[580px] flex flex-col justify-center relative">
+          {/* Loading state - sibling of target container, not inside it */}
+          {!loaded && !error && (
+            <div className="py-24 text-center text-slate-500 w-full">
+              <RefreshCw className="w-9 h-9 animate-spin mx-auto mb-4 text-brand-600" />
+              <p className="text-base font-semibold text-slate-800">Načítám hypoteční kalkulačku HypoSpace...</p>
+              <p className="text-xs text-slate-500 mt-1">Stahuji aktuální úrokové sazby všech bank v ČR</p>
+            </div>
+          )}
 
-            {error && (
-              <div className="py-16 text-center text-slate-600">
-                <p className="text-base font-semibold text-slate-900 mb-2">
-                  Kalkulačku se nepodařilo načíst (může jít o blokování třetích stran nebo výpadek sítě).
-                </p>
-                <p className="text-sm text-slate-500 mb-6">
-                  Můžete přejít přímo na hlavní portál HypoSpace.cz nebo nás kontaktovat.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <a
-                    href="https://hypospace.cz"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow hover:bg-brand-700"
-                  >
-                    Otevřít HypoSpace.cz <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                  <Link
-                    to="/kontakt"
-                    className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-bold text-sm hover:bg-slate-200"
-                  >
-                    Sjednat konzultaci
-                  </Link>
-                </div>
+          {/* Error fallback - sibling of target container, not inside it */}
+          {error && (
+            <div className="py-16 text-center text-slate-600 w-full">
+              <p className="text-base font-semibold text-slate-900 mb-2">
+                Kalkulačku se nepodařilo přímo načíst v tomto zobrazení.
+              </p>
+              <p className="text-sm text-slate-500 mb-6">
+                Můžete přejít přímo na hlavní portál HypoSpace.cz nebo nás kontaktovat pro nezávislé srovnání.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="https://hypospace.cz"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow hover:bg-brand-700"
+                >
+                  Otevřít HypoSpace.cz <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
+                <Link
+                  to="/kontakt"
+                  className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-bold text-sm hover:bg-slate-200"
+                >
+                  Sjednat konzultaci
+                </Link>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+
+          {/* Empty target node for external HypoSpace script - React NEVER touches its children */}
+          <div
+            id="hypospace-calculator-sales"
+            ref={containerRef}
+            className={`w-full ${!loaded || error ? 'hidden' : 'block'}`}
+          />
         </div>
 
         {/* Benefits & ZFP Advisory Sidebar */}
