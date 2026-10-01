@@ -1,54 +1,88 @@
-import React, { useState, useMemo } from 'react';
-import { Home, ExternalLink, ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Building } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Home, ExternalLink, ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Building, RefreshCw, Award, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+declare global {
+  interface Window {
+    HypoSpaceCalculatorSales?: {
+      render: (target: string | HTMLElement) => void;
+      init?: () => void;
+      getTemplate?: () => string;
+      getStyles?: () => string;
+    };
+  }
+}
+
 export default function MortgageCalculator() {
-  const [loanAmount, setLoanAmount] = useState<number>(4000000);
-  const [years, setYears] = useState<number>(30);
-  const [interestRate, setInterestRate] = useState<number>(4.49);
-  const [fixationYears, setFixationYears] = useState<number>(5);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
-  // Exact financial annuity monthly payment formula: M = P * [r(1+r)^n] / [(1+r)^n - 1]
-  const calculation = useMemo(() => {
-    const monthlyRate = interestRate / 100 / 12;
-    const totalMonths = years * 12;
+  useEffect(() => {
+    const SCRIPT_URL = 'https://hypospace.cz/wp-content/cache/autoptimize/js/autoptimize_single_aeda9edc180772cf0aecb84bd262ff35.js';
+    const SCRIPT_ID = 'hypospace-sales-calculator-script';
 
-    if (monthlyRate === 0) {
-      const payment = Math.round(loanAmount / totalMonths);
-      return {
-        monthlyPayment: payment,
-        totalPaid: loanAmount,
-        totalInterest: 0,
-        bankSavingsEstimate: 145000
-      };
+    const renderWidget = () => {
+      try {
+        const target = document.getElementById('hypospace-calculator-sales');
+        if (target && window.HypoSpaceCalculatorSales?.render) {
+          // If the widget is not already rendered inside target
+          if (!target.querySelector('.mort-calc')) {
+            window.HypoSpaceCalculatorSales.render(target);
+          }
+          setLoaded(true);
+        }
+      } catch (err) {
+        console.error('Error rendering HypoSpace calculator:', err);
+        setError(true);
+      }
+    };
+
+    // If script is already loaded and ready
+    if (window.HypoSpaceCalculatorSales) {
+      // Small timeout to allow DOM element to be fully attached
+      const timer = setTimeout(renderWidget, 50);
+      return () => clearTimeout(timer);
     }
 
-    const factor = Math.pow(1 + monthlyRate, totalMonths);
-    const monthlyPayment = Math.round((loanAmount * (monthlyRate * factor)) / (factor - 1));
-    const totalPaid = monthlyPayment * totalMonths;
-    const totalInterest = totalPaid - loanAmount;
+    // Check if script tag already exists in DOM
+    let script = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement('script');
+      script.id = SCRIPT_ID;
+      script.src = SCRIPT_URL;
+      script.defer = true;
+      script.async = true;
+      script.onload = () => {
+        setTimeout(renderWidget, 100);
+      };
+      script.onerror = (e) => {
+        console.error('Failed to load HypoSpace widget script:', e);
+        setError(true);
+      };
+      document.body.appendChild(script);
+    } else {
+      // Script tag exists, poll briefly until global is defined
+      const interval = setInterval(() => {
+        if (window.HypoSpaceCalculatorSales) {
+          clearInterval(interval);
+          renderWidget();
+        }
+      }, 80);
 
-    // Estimate savings compared to standard unnegotiated bank branch rates (+0.5% p.a.)
-    const standardRate = (interestRate + 0.5) / 100 / 12;
-    const standardFactor = Math.pow(1 + standardRate, totalMonths);
-    const standardPayment = (loanAmount * (standardRate * standardFactor)) / (standardFactor - 1);
-    const bankSavingsEstimate = Math.round((standardPayment * totalMonths) - totalPaid);
+      const timeout = setTimeout(() => {
+        clearInterval(interval);
+        if (!window.HypoSpaceCalculatorSales) {
+          setError(true);
+        }
+      }, 6000);
 
-    return {
-      monthlyPayment,
-      totalPaid,
-      totalInterest,
-      bankSavingsEstimate: Math.max(bankSavingsEstimate, 85000)
-    };
-  }, [loanAmount, years, interestRate]);
-
-  const formatCurrency = (val: number) => {
-    return new Intl.NumberFormat('cs-CZ', {
-      style: 'currency',
-      currency: 'CZK',
-      maximumFractionDigits: 0
-    }).format(val);
-  };
+      return () => {
+        clearInterval(interval);
+        clearTimeout(timeout);
+      };
+    }
+  }, []);
 
   return (
     <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
@@ -59,228 +93,120 @@ export default function MortgageCalculator() {
             <img
               src="/logo-hypospace.png"
               alt="HypoSpace.cz logo"
-              className="h-7 w-auto object-contain"
-              width="130"
-              height="32"
+              className="h-8 w-auto object-contain"
+              width="140"
+              height="35"
             />
           </div>
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20 mb-1">
-              <Sparkles className="w-3 h-3" /> Certifikovaná hypoteční technologie
+              <Sparkles className="w-3 h-3" /> Oficiální integrovaná kalkulačka
             </div>
-            <h3 className="text-xl font-bold text-white">Hypoteční kalkulačka 2026</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-white">Hypoteční kalkulačka HypoSpace.cz</h3>
           </div>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-400 sm:text-right">
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>Srovnání 14 licencovaných bank v ČR</span>
+          <span>Přímé napojení na bankovní sazby 2026</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-        {/* Controls Column */}
-        <div className="lg:col-span-7 space-y-7">
-          {/* Loan Amount */}
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <label htmlFor="mortgage-loan-amount" className="text-sm font-medium text-slate-300">
-                Výše hypotečního úvěru
-              </label>
-              <span className="text-xl font-extrabold text-brand-400 font-mono">
-                {formatCurrency(loanAmount)}
-              </span>
-            </div>
-            <input
-              id="mortgage-loan-amount"
-              type="range"
-              min={500000}
-              max={15000000}
-              step={100000}
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(Number(e.target.value))}
-              aria-label="Výše hypotečního úvěru v korunách"
-              className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-500"
-            />
-            <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-              <span>500 tis. Kč</span>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setLoanAmount(3000000)}
-                  className="hover:text-brand-400 underline underline-offset-2"
-                >
-                  3 mil.
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLoanAmount(5000000)}
-                  className="hover:text-brand-400 underline underline-offset-2"
-                >
-                  5 mil.
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLoanAmount(8000000)}
-                  className="hover:text-brand-400 underline underline-offset-2"
-                >
-                  8 mil.
-                </button>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* HypoSpace Widget Container */}
+        <div className="lg:col-span-7 bg-white rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-200 text-slate-900 min-h-[580px] flex flex-col justify-center">
+          {/* Target Element for HypoSpace shortcode */}
+          <div id="hypospace-calculator-sales" ref={containerRef} className="w-full">
+            {!loaded && !error && (
+              <div className="py-24 text-center text-slate-500">
+                <RefreshCw className="w-9 h-9 animate-spin mx-auto mb-4 text-brand-600" />
+                <p className="text-base font-semibold text-slate-800">Načítám hypoteční kalkulačku HypoSpace...</p>
+                <p className="text-xs text-slate-500 mt-1">Stahuji aktuální úrokové sazby všech bank v ČR</p>
               </div>
-              <span>15 mil. Kč</span>
-            </div>
-          </div>
+            )}
 
-          {/* Loan Term */}
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <label htmlFor="mortgage-term" className="text-sm font-medium text-slate-300">
-                Doba splácení
-              </label>
-              <span className="text-xl font-extrabold text-white font-mono">
-                {years} let <span className="text-xs text-slate-400 font-normal">({years * 12} splátek)</span>
-              </span>
-            </div>
-            <input
-              id="mortgage-term"
-              type="range"
-              min={5}
-              max={30}
-              step={1}
-              value={years}
-              onChange={(e) => setYears(Number(e.target.value))}
-              aria-label="Doba splácení hypotéky v letech"
-              className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-500"
-            />
-            <div className="flex justify-between text-[11px] text-slate-500 mt-1">
-              <span>5 let</span>
-              <span>15 let</span>
-              <span>20 let</span>
-              <span>25 let</span>
-              <span>30 let</span>
-            </div>
-          </div>
-
-          {/* Interest Rate & Presets */}
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <label htmlFor="mortgage-interest-rate" className="text-sm font-medium text-slate-300">
-                Úroková sazba (% p.a.)
-              </label>
-              <span className="text-xl font-extrabold text-amber-300 font-mono">
-                {interestRate.toFixed(2)} % p.a.
-              </span>
-            </div>
-            <input
-              id="mortgage-interest-rate"
-              type="range"
-              min={3.5}
-              max={7.5}
-              step={0.05}
-              value={interestRate}
-              onChange={(e) => setInterestRate(Number(e.target.value))}
-              aria-label="Úroková sazba hypotéky v procentech ročně"
-              className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-500"
-            />
-            <div className="flex flex-wrap gap-2 mt-3">
-              <button
-                type="button"
-                onClick={() => setInterestRate(4.19)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
-                  interestRate === 4.19
-                    ? 'bg-brand-500 text-slate-950 font-bold'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                }`}
-              >
-                ⭐ Exkluzivní ZFP sazba (4,19 %)
-              </button>
-              <button
-                type="button"
-                onClick={() => setInterestRate(4.69)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
-                  interestRate === 4.69
-                    ? 'bg-brand-500 text-slate-950 font-bold'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                }`}
-              >
-                Aktuální tržní průměr (4,69 %)
-              </button>
-            </div>
-          </div>
-
-          {/* Fixation Selector */}
-          <div>
-            <label className="text-sm font-medium text-slate-300 block mb-2">
-              Preferovaná doba fixace úroku
-            </label>
-            <div className="grid grid-cols-3 gap-3">
-              {[3, 5, 10].map((f) => (
-                <button
-                  key={f}
-                  type="button"
-                  onClick={() => setFixationYears(f)}
-                  className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all text-center ${
-                    fixationYears === f
-                      ? 'border-brand-500 bg-brand-500/10 text-brand-400'
-                      : 'border-slate-800 bg-slate-800/60 text-slate-300 hover:border-slate-700'
-                  }`}
-                >
-                  {f} {f === 3 ? 'roky' : 'let'}
-                </button>
-              ))}
-            </div>
+            {error && (
+              <div className="py-16 text-center text-slate-600">
+                <p className="text-base font-semibold text-slate-900 mb-2">
+                  Kalkulačku se nepodařilo načíst (může jít o blokování třetích stran nebo výpadek sítě).
+                </p>
+                <p className="text-sm text-slate-500 mb-6">
+                  Můžete přejít přímo na hlavní portál HypoSpace.cz nebo nás kontaktovat.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <a
+                    href="https://hypospace.cz"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center px-6 py-3 rounded-xl bg-brand-600 text-white font-bold text-sm shadow hover:bg-brand-700"
+                  >
+                    Otevřít HypoSpace.cz <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                  <Link
+                    to="/kontakt"
+                    className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-bold text-sm hover:bg-slate-200"
+                  >
+                    Sjednat konzultaci
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Results Column */}
-        <div className="lg:col-span-5 flex flex-col justify-between bg-slate-950/80 rounded-2xl p-6 sm:p-8 border border-slate-800/80">
+        {/* Benefits & ZFP Advisory Sidebar */}
+        <div className="lg:col-span-5 flex flex-col justify-between bg-slate-950/80 rounded-2xl p-6 sm:p-8 border border-slate-800/80 space-y-6">
           <div>
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-                Orientační měsíční splátka
-              </span>
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Fixace {fixationYears} let
-              </span>
-            </div>
+            <span className="text-xs uppercase tracking-wider text-brand-400 font-bold block mb-2">
+              Proč řešit hypotéku s námi
+            </span>
+            <h4 className="text-2xl font-extrabold text-white leading-tight mb-4">
+              ZFP Jagoš & partneři + HypoSpace.cz
+            </h4>
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              Nezávisle propojujeme technologii online srovnání HypoSpace s osobním servisem a vyjednávací silou skupiny ZFP Group.
+            </p>
 
-            <div className="mt-4">
-              <div className="text-4xl sm:text-5xl font-black text-brand-400 tracking-tight">
-                {formatCurrency(calculation.monthlyPayment)}
-                <span className="text-lg text-slate-400 font-normal"> / měsíc</span>
+            <div className="space-y-4 text-xs sm:text-sm text-slate-300 border-t border-slate-800 pt-6">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-white block font-semibold">14 bank na jednom místě</strong>
+                  <span className="text-slate-400 text-xs">Ušetříte týdny obíhání poboček. Vidíte přesné srovnání nabídek.</span>
+                </div>
               </div>
-              <p className="text-xs text-slate-400 mt-2">
-                Při úrokové sazbě {interestRate.toFixed(2)} % p.a. na {years} let.
-              </p>
-            </div>
 
-            <div className="mt-6 pt-6 border-t border-slate-800 space-y-3 text-sm">
-              <div className="flex justify-between text-slate-300">
-                <span>Půjčená jistina:</span>
-                <span className="font-semibold text-white">{formatCurrency(loanAmount)}</span>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-white block font-semibold">Neveřejné slevy ze sazeb</strong>
+                  <span className="text-slate-400 text-xs">Díky stamilionovým objemům máme přístup k individuálním slevám.</span>
+                </div>
               </div>
-              <div className="flex justify-between text-slate-300">
-                <span>Úroky bance celkem:</span>
-                <span className="font-semibold text-amber-300">{formatCurrency(calculation.totalInterest)}</span>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-white block font-semibold">Odhad nemovitosti zdarma</strong>
+                  <span className="text-slate-400 text-xs">U vybraných bank vyjednáme odhad nemovitosti bez poplatku.</span>
+                </div>
               </div>
-              <div className="flex justify-between text-slate-300">
-                <span>Celkem zaplatíte:</span>
-                <span className="font-semibold text-white">{formatCurrency(calculation.totalPaid)}</span>
-              </div>
-              <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-emerald-400 font-medium text-xs">
-                <span className="flex items-center">
-                  <CheckCircle2 className="w-3.5 h-3.5 mr-1" /> Úspora se ZFP & HypoSpace:
-                </span>
-                <span className="font-bold font-mono">cca {formatCurrency(calculation.bankSavingsEstimate)}</span>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-white block font-semibold">Kompletní servis a katastr</strong>
+                  <span className="text-slate-400 text-xs">Pohlídáme čerpání úvěru, zástavní smlouvy i podání na katastr nemovitostí.</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 space-y-3">
+          <div className="pt-6 border-t border-slate-800 space-y-3">
             <Link
               to="/kontakt"
               className="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-amber-500 hover:from-brand-400 hover:to-amber-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-brand-500/20 hover:scale-[1.02]"
             >
-              Nezávazně konzultovat hypotéku
+              Nezávazná konzultace s naším specialistou
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
 
@@ -288,18 +214,18 @@ export default function MortgageCalculator() {
               href="https://hypospace.cz"
               target="_blank"
               rel="noreferrer noopener"
-              className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium text-xs border border-white/10 transition-colors"
+              className="w-full inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium text-xs border border-white/10 transition-colors"
             >
-              Kompletní online srovnávač na HypoSpace.cz
+              Navštívit portál HypoSpace.cz
               <ExternalLink className="w-3.5 h-3.5 ml-1.5 opacity-70" />
             </a>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
-        <p>Výpočet má informativní charakter. Konečná nabídka závisí na bonitě žadatele a schválení bankou.</p>
-        <span className="text-slate-400 font-medium">Ve spolupráci s HypoSpace s.r.o.</span>
+      <div className="mt-8 pt-4 border-t border-slate-800/60 text-[11px] text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <p>Integrovaný widget HypoSpace Sales Calculator. Data jsou zabezpečena a odesílána v souladu s GDPR.</p>
+        <span className="text-slate-400 font-medium">Oficiální partner HypoSpace s.r.o.</span>
       </div>
     </div>
   );

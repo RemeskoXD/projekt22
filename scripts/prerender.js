@@ -230,6 +230,18 @@ const routes = [
           </div>
         </div>
       </section>
+      <section id="kalkulacka" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs uppercase tracking-wider text-brand-400 font-bold block mb-2">Interaktivní nástroje</span>
+            <h2 class="text-3xl font-bold">Hypoteční kalkulačka HypoSpace.cz</h2>
+            <p class="text-slate-300 text-sm mt-2">Nezávislé porovnání splátek a úrokových sazeb všech bank na českém trhu.</p>
+          </div>
+          <div id="hypospace-calculator-sales" class="bg-white rounded-2xl p-6 text-slate-900 min-h-[400px]">
+            <p class="text-center text-slate-500 py-12">Načítám oficiální kalkulačku HypoSpace.cz...</p>
+          </div>
+        </div>
+      </section>
     `
   },
   {
