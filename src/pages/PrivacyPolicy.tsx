@@ -50,26 +50,48 @@ export default function PrivacyPolicy() {
 
           <div className="prose prose-slate max-w-none text-slate-700 space-y-8 text-sm sm:text-base leading-relaxed">
             
-            {/* 1. Kdo je správcem */}
+            {/* 1. Kdo je správcem a regulatorní status ČNB */}
             <section className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
               <h2 className="text-xl font-bold text-slate-950 mb-3 flex items-center gap-2">
                 <FileText className="w-5 h-5 text-brand-600" />
-                1. Identifikace správce a regulatorní postavení
+                1. Identifikace správce a regulatorní postavení ČNB
               </h2>
               <p>
-                Správcem osobních údajů zpracovávaných prostřednictvím webových stránek <strong>zfpjagos.cz</strong> je:
+                Správcem osobních údajů zpracovávaných prostřednictvím webových stránek <strong>zfpjagos.cz</strong> a poskytovatelem finančních služeb je:
               </p>
-              <div className="mt-3 p-4 bg-white rounded-xl border border-slate-200 font-medium text-slate-900 text-sm space-y-1">
+              <div className="mt-3 p-4 bg-white rounded-xl border border-slate-200 font-medium text-slate-900 text-sm space-y-1.5">
                 <p><strong>Bc. Jaroslav Jagoš, EFA</strong> — ředitel obchodního týmu a zakladatel ZFP Jagoš & partneři</p>
-                <p>Sídlo strukturní kanceláře: Hutník 1503, 698 01 Veselí nad Moravou</p>
-                <p>E-mail: <a href="mailto:info@zfpjagos.cz" className="text-brand-600 hover:underline">info@zfpjagos.cz</a> | Telefon: <a href="tel:+420606084044" className="text-brand-600 hover:underline">+420 606 084 044</a></p>
+                <p><strong>IČO:</strong> 74832182</p>
+                <p><strong>Sídlo strukturní kanceláře:</strong> Hutník 1503, 698 01 Veselí nad Moravou</p>
+                <p><strong>E-mail:</strong> <a href="mailto:info@zfpjagos.cz" className="text-brand-600 hover:underline">info@zfpjagos.cz</a> | <strong>Telefon:</strong> <a href="tel:+420606084044" className="text-brand-600 hover:underline">+420 606 084 044</a></p>
               </div>
-              <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                <strong>Regulace a dohled České národní banky (ČNB):</strong><br />
-                Poradci strukturní kanceláře ZFP Jagoš & partneři vykonávají zprostředkovatelskou a poradenskou činnost v pozici <strong>vázaného zástupce</strong> registrovaného v registru finančních zprostředkovatelů vedeném Českou národní bankou (ČNB) pro samostatného zprostředkovatele:
-              </p>
-              <div className="mt-2 p-3 bg-white/80 rounded-lg border border-slate-200 text-xs text-slate-700">
-                <strong>ZFP akademie, a.s.</strong>, IČO: 26307961, se sídlem 17. listopadu 3110/1a, 690 02 Břeclav, zapsaná v obchodním rejstříku Krajského soudu v Brně, oddíl B, vložka 3959. Oprávnění k činnosti zahrnuje zprostředkování spotřebitelských úvěrů (zákon č. 257/2016 Sb.), pojištění (zákon č. 170/2018 Sb.), investičních služeb (zákon č. 256/2004 Sb.) a doplňkového penzijního spoření (zákon č. 427/2011 Sb.).
+
+              <div className="mt-5 pt-4 border-t border-slate-200 text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+                <p>
+                  <strong>Regulace a registrace u České národní banky (ČNB):</strong><br />
+                  Bc. Jaroslav Jagoš, EFA (IČO: 74832182) i certifikovaní poradci týmu vykonávají poradenskou a zprostředkovatelskou činnost na finančním trhu jako <strong>vázaní zástupci</strong> zapsaní v oficiálním registru finančních zprostředkovatelů vedeném Českou národní bankou.
+                </p>
+                <p>
+                  Ověření registrace v oficiálním registru subjektů ČNB je veřejně dostupné na adrese:{' '}
+                  <a
+                    href="https://www.cnb.cz/cnb/jerrs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-600 font-semibold underline"
+                  >
+                    Registr subjektů ČNB (JERRS) &rarr;
+                  </a>{' '}
+                  (vyhledáním podle IČO <strong>74832182</strong> nebo jména <em>Jaroslav Jagoš</em>).
+                </p>
+                <div className="p-3 bg-white/90 rounded-lg border border-slate-200 text-xs space-y-1 mt-2">
+                  <p><strong>Zastoupený samostatný zprostředkovatel:</strong></p>
+                  <p>
+                    <strong>ZFP akademie, a.s.</strong>, IČO: 26307961, se sídlem 17. listopadu 3110/1a, 690 02 Břeclav, zapsaná v obchodním rejstříku vedeném Krajským soudem v Brně, oddíl B, vložka 3959.
+                  </p>
+                  <p className="text-slate-500 pt-1">
+                    Rozsah oprávnění ČNB: Samostatný zprostředkovatel spotřebitelského úvěru (zákon č. 257/2016 Sb.), samostatný zprostředkovatel pojištění (zákon č. 170/2018 Sb.), investiční zprostředkovatel (zákon č. 256/2004 Sb.) a zprostředkovatel doplňkového penzijního spoření (zákon č. 427/2011 Sb.).
+                  </p>
+                </div>
               </div>
             </section>
 
@@ -184,6 +206,37 @@ export default function PrivacyPolicy() {
               <p className="mt-4 text-xs sm:text-sm text-slate-600">
                 Pro uplatnění jakéhokoliv práva nás kontaktujte na e-mailu <a href="mailto:info@zfpjagos.cz" className="text-brand-600 underline font-semibold">info@zfpjagos.cz</a>. Máte rovněž právo podat stížnost u dozorového orgánu, kterým je <strong>Úřad pro ochranu osobních údajů</strong> (ÚOOÚ), Pplk. Sochora 27, 170 00 Praha 7 (<a href="https://www.uoou.cz" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline">www.uoou.cz</a>).
               </p>
+            </section>
+
+            {/* 8. Mimosoudní řešení spotřebitelských sporů */}
+            <section className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+              <h2 className="text-xl font-bold text-slate-950 mb-3 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-brand-600" />
+                8. Mimosoudní řešení spotřebitelských sporů (ADR)
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+                V souladu se zákonem č. 634/1992 Sb., o ochraně spotřebitele, informujeme klienta o možnosti mimosoudního řešení případných sporů vyplývajících z poskytovaných finančních služeb:
+              </p>
+              <ul className="list-disc pl-6 space-y-2 text-xs sm:text-sm text-slate-700">
+                <li>
+                  <strong>Spotřebitelské úvěry, hypotéky a investice:</strong> Věcně příslušným orgánem mimosoudního řešení sporů je <strong>Finanční arbitr</strong>, Legerova 1581/69, 110 00 Praha 1, web:{' '}
+                  <a href="https://www.finarbitr.cz" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline font-semibold">
+                    www.finarbitr.cz
+                  </a>.
+                </li>
+                <li>
+                  <strong>Životní a neživotní pojištění:</strong> Věcně příslušným orgánem je <strong>Kancelář ombudsmana České asociace pojišťoven</strong>, Elišky Krásnohorské 135/7, 110 00 Praha 1, web:{' '}
+                  <a href="https://www.ombudsmancap.cz" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline font-semibold">
+                    www.ombudsmancap.cz
+                  </a>.
+                </li>
+                <li>
+                  <strong>Ostatní spotřebitelské spory:</strong> Věcně příslušným orgánem je <strong>Česká obchodní inspekce (ČOI)</strong>, Štěpánská 567/15, 120 00 Praha 2, web:{' '}
+                  <a href="https://www.coi.cz" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline font-semibold">
+                    www.coi.cz
+                  </a>.
+                </li>
+              </ul>
             </section>
 
           </div>

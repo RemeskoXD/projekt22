@@ -110,9 +110,12 @@ export default function Footer() {
         </div>
         
         {/* Legal Regulatory Disclaimer & ČNB registration */}
-        <div className="border-t border-slate-800/80 mt-12 pt-6 text-xs text-slate-500 leading-relaxed">
+        <div className="border-t border-slate-800/80 mt-12 pt-6 text-xs text-slate-500 leading-relaxed space-y-2">
           <p>
-            <strong className="text-slate-400">Právní doložka a regulace ČNB:</strong> ZFP Jagoš & partneři je strukturní poradenská kancelář skupiny ZFP Group. Poradenské a zprostředkovatelské služby jsou poskytovány v pozici vázaného zástupce zapsaného v registru České národní banky (ČNB) pro samostatného zprostředkovatele <strong className="text-slate-400">ZFP akademie, a.s.</strong>, IČO: 26307961 (spotřebitelské úvěry dle zákona č. 257/2016 Sb., distribuce pojištění dle zákona č. 170/2018 Sb., doplňkové penzijní spoření dle zákona č. 427/2011 Sb. a investiční služby dle zákona č. 256/2004 Sb.).
+            <strong className="text-slate-400">Právní doložka a regulace ČNB:</strong> ZFP Jagoš & partneři je strukturní poradenská kancelář skupiny ZFP Group. Vedení kanceláře <strong className="text-slate-300">Bc. Jaroslav Jagoš, EFA (IČO: 74832182)</strong> i certifikovaní poradci týmu vykonávají poradenskou a zprostředkovatelskou činnost na finančním trhu jako vázaní zástupci zapsaní v <a href="https://www.cnb.cz/cnb/jerrs" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:underline">oficiálním registru České národní banky (ČNB)</a> pro samostatného zprostředkovatele <strong className="text-slate-300">ZFP akademie, a.s.</strong> (IČO: 26307961, sídlem 17. listopadu 3110/1a, 690 02 Břeclav).
+          </p>
+          <p className="text-[11px] text-slate-500">
+            Sektorová oprávnění ČNB: Spotřebitelské úvěry a hypotéky (zákon č. 257/2016 Sb.), distribuce pojištění (zákon č. 170/2018 Sb.), investiční služby (zákon č. 256/2004 Sb.) a doplňkové penzijní spoření (zákon č. 427/2011 Sb.).
           </p>
         </div>
         

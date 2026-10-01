@@ -425,12 +425,14 @@ const routes = [
     ],
     content: `
       <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose text-slate-700">
-        <h2>1. Kdo spravuje vaše údaje</h2>
-        <p>Bc. Jaroslav Jagoš, EFA se sídlem Hutník 1503, 698 01 Veselí nad Moravou, ve spolupráci se ZFP akademie, a.s. (IČO: 26307961, zapsaná v obchodním rejstříku vedeném Krajským soudem v Brně, oddíl B, vložka 3895).</p>
-        <h2>2. Regulatorní status ČNB</h2>
-        <p>Členové týmu ZFP Jagoš & partneři vykonávají činnost jako vázaní zástupci podle zákona č. 257/2016 Sb., o spotřebitelském úvěru, zákona č. 256/2004 Sb., o podnikání na kapitálovém trhu, zákona č. 170/2018 Sb., o distribuci pojištění a zajištění a zákona č. 427/2011 Sb., o doplňkovém penzijním spoření pro společnost ZFP akademie, a.s., která je registrována Českou národní bankou (ČNB).</p>
-        <h2>3. Používání souborů Cookies</h2>
-        <p>Používáme nezbytné technické cookies pro zajištění funkčnosti webu a analytické cookies pro měření návštěvnosti pouze se souhlasem návštěvníka.</p>
+        <h2>1. Identifikace správce a regulatorní postavení ČNB</h2>
+        <p><strong>Bc. Jaroslav Jagoš, EFA</strong>, IČO: 74832182, sídlem Hutník 1503, 698 01 Veselí nad Moravou. E-mail: info@zfpjagos.cz, Telefon: +420 606 084 044.</p>
+        <h2>2. Regulatorní status České národní banky (ČNB)</h2>
+        <p>Bc. Jaroslav Jagoš, EFA (IČO: 74832182) i poradci týmu vykonávají činnost jako <strong>vázaní zástupci</strong> zapsaní v oficiálním registru ČNB (JERRS: cnb.cz/cnb/jerrs) pro samostatného zprostředkovatele <strong>ZFP akademie, a.s.</strong> (IČO: 26307961, sídlem 17. listopadu 3110/1a, 690 02 Břeclav) v oblastech: spotřebitelské úvěry (zákon č. 257/2016 Sb.), distribuce pojištění (zákon č. 170/2018 Sb.), investiční služby (zákon č. 256/2004 Sb.) a doplňkové penzijní spoření (zákon č. 427/2011 Sb.).</p>
+        <h2>3. Používání souborů Cookies a ochrana soukromí</h2>
+        <p>Používáme nezbytné technické cookies pro bezpečný chod webu a anonymizované analytické cookies pro měření návštěvnosti pouze s vaším souhlasem uděleným v cookie liště.</p>
+        <h2>4. Mimosoudní řešení spotřebitelských sporů (ADR)</h2>
+        <p>Věcně příslušným orgánem pro úvěry a investice je <strong>Finanční arbitr</strong> (www.finarbitr.cz), pro pojištění <strong>Kancelář ombudsmana ČAP</strong> (www.ombudsmancap.cz) a pro ostatní spory <strong>Česká obchodní inspekce</strong> (www.coi.cz).</p>
       </section>
     `
   }
