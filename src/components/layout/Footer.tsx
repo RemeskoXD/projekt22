@@ -10,13 +10,16 @@ export default function Footer() {
           <div>
             <div className="mb-6">
               <Link to="/" className="inline-block bg-white p-3 rounded-2xl shadow-sm hover:opacity-95 transition-opacity">
-                <img
-                  src="/logo-zfp-jagos-partneri.png"
-                  alt="ZFP GROUP Jagoš & partneři"
-                  className="h-12 sm:h-13 w-auto object-contain"
-                  width="221"
-                  height="72"
-                />
+                <picture>
+                  <source srcSet="/logo-zfp-jagos-partneri-hd.webp 2x, /logo-zfp-jagos-partneri-hd.webp 1x" type="image/webp" />
+                  <img
+                    src="/logo-zfp-jagos-partneri.png"
+                    alt="ZFP GROUP Jagoš & partneři"
+                    className="h-12 sm:h-13 w-auto object-contain"
+                    width="221"
+                    height="72"
+                  />
+                </picture>
               </Link>
             </div>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">

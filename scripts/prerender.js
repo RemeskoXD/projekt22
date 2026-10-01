@@ -564,7 +564,10 @@ for (const route of routes) {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-20 sm:h-24">
             <a href="/" aria-label="ZFP GROUP Jagoš & partneři – domovská stránka" class="flex-shrink-0 flex items-center">
-              <img src="/logo-zfp-jagos-partneri.png" alt="ZFP GROUP Jagoš & partneři" class="h-13 sm:h-15 lg:h-16 w-auto object-contain" width="221" height="72" />
+              <picture>
+                <source srcset="/logo-zfp-jagos-partneri-hd.webp 2x, /logo-zfp-jagos-partneri-hd.webp 1x" type="image/webp" />
+                <img src="/logo-zfp-jagos-partneri.png" alt="ZFP GROUP Jagoš & partneři" class="h-14 sm:h-16 lg:h-18 max-h-[76px] w-auto object-contain" width="221" height="72" />
+              </picture>
             </a>
             <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700">
               <a href="/" class="hover:text-slate-900">O nás</a>

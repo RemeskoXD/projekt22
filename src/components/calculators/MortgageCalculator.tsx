@@ -89,14 +89,17 @@ export default function MortgageCalculator() {
       {/* HypoSpace Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-8 border-b border-slate-800">
         <div className="flex items-center gap-4">
-          <div className="bg-white p-2.5 rounded-2xl shadow-sm flex items-center justify-center shrink-0">
-            <img
-              src="/logo-hypospace.png"
-              alt="HypoSpace.cz logo"
-              className="h-8 w-auto object-contain"
-              width="140"
-              height="35"
-            />
+          <div className="bg-white px-3.5 py-2 rounded-2xl shadow-sm flex items-center justify-center shrink-0">
+            <picture>
+              <source srcSet="/logo-hypospace-trimmed.webp" type="image/webp" />
+              <img
+                src="/logo-hypospace-trimmed.png"
+                alt="HypoSpace.cz logo"
+                className="h-7 sm:h-7.5 w-auto object-contain"
+                width="160"
+                height="26"
+              />
+            </picture>
           </div>
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20 mb-1">

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Facebook, Instagram, Globe, Headphones, Mic, Sparkles, Award } from 'lucide-react';
+import { ArrowRight, ShieldCheck, TrendingUp, Home as HomeIcon, Phone, Mail, Linkedin, Facebook, Instagram, Globe, Headphones, Mic, Sparkles, Award, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { teamMembers, getImageUrl } from '../data';
 import { ImageWithFallback } from '../components/ImageWithFallback';
@@ -134,45 +134,57 @@ export default function Home() {
   const zfpProjects = [
     {
       name: 'ZFP Akademie',
-      fullName: 'ZFP Akademie',
-      logo: '/logo-akademie-cz.png',
-      description: 'Vzdělávání a kurzy finanční gramotnosti',
+      fullName: 'ZFP Akademie – Vzdělávání a kurzy finanční gramotnosti',
+      logo: '/logo-akademie-web-cz.webp',
+      description: 'Vzdělávání a kurzy finanční gramotnosti pro rodiny i podnikatele',
       url: 'https://www.zfpa.cz',
+      tag: 'Vzdělávání',
+      isWide: false,
     },
     {
       name: 'HypoSpace.cz',
-      fullName: 'HypoSpace.cz – Hypoteční technologie',
-      logo: '/logo-hypospace.png',
-      description: 'Chytrá hypoteční kalkulačka a online srovnávač hypoték',
+      fullName: 'HypoSpace.cz – Hypoteční technologie a online srovnávač hypoték',
+      logo: '/logo-hypospace-trimmed.webp',
+      description: 'Chytrá hypoteční kalkulačka a nezávislé online srovnání celého trhu',
       url: 'https://hypospace.cz',
+      tag: 'Hypotéky online',
+      isWide: true,
     },
     {
       name: 'ZFP Reality',
-      fullName: 'ZFP Reality',
+      fullName: 'ZFP Reality – Realitní zprostředkování a online odhad',
       logo: '/logo-reality-web-2-066e7c04.webp',
-      description: 'Realitní zprostředkování a online odhad nemovitosti',
+      description: 'Realitní kancelář, prodej nemovitostí a bezplatný online odhad tržní ceny',
       url: 'https://www.zfpreality.cz',
+      tag: 'Reality & Odhady',
+      isWide: false,
     },
     {
       name: 'ZFP Gold',
-      fullName: 'ZFP Gold',
+      fullName: 'ZFP Gold – Investiční zlato a drahé kovy',
       logo: '/logo-gold-web-d7f7fe84.webp',
-      description: 'Investiční zlato a drahé kovy',
+      description: 'Fyzické investiční slitky nejvyšší ryzosti s garancí zpětného odkupu',
       url: 'https://www.zfpgold.cz',
+      tag: 'Zlato & Kovy',
+      isWide: false,
     },
     {
       name: 'ZFP Investments',
-      fullName: 'ZFP Investments',
+      fullName: 'ZFP Investments – Realitní podílový fond',
       logo: '/logo-investments-web-4a0d5d9c.webp',
-      description: 'Realitní fond a správa investičních aktiv',
+      description: 'Prémiový realitní fond přinášející stabilní výnosy z komerčních aktiv',
       url: 'https://zfpinvestments.com',
+      tag: 'Investiční fond',
+      isWide: false,
     },
     {
       name: 'ZFP Hotely',
-      fullName: 'ZFP Hotely',
+      fullName: 'ZFP Hotely – Hotelové a kongresové resorty',
       logo: '/logo-hotely-web-bc8a7acc.webp',
-      description: 'Hotelové a kongresové resorty',
+      description: 'Hotelové, relaxační a kongresové resorty pro rodiny i firmy',
       url: 'https://www.zfphotely.cz',
+      tag: 'Resorty & Hotely',
+      isWide: false,
     },
   ];
 
@@ -222,11 +234,15 @@ export default function Home() {
             >
               <Link 
                 to="/podcast"
-                className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-white hover:bg-white/15 font-medium text-sm mb-6 border border-white/20 backdrop-blur-md transition-all hover:scale-105 shadow-lg group"
+                className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-white/10 text-white hover:bg-white/15 font-medium text-sm mb-6 border border-white/20 backdrop-blur-md transition-all hover:scale-105 shadow-lg group"
               >
-                <Mic className="w-4 h-4 mr-2 text-brand-400 group-hover:animate-pulse" /> 
-                <span>Podcast Finanční Kompas</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-2 text-slate-300 group-hover:translate-x-1 transition-transform" />
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                <Mic className="w-4 h-4 text-brand-400 group-hover:animate-pulse" /> 
+                <span className="font-semibold">Podcast Finanční Kompas</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
@@ -349,21 +365,21 @@ export default function Home() {
       </section>
 
       {/* RELATED PROJECTS LOGOS */}
-      <section className="py-24 bg-slate-50/60 border-b border-slate-100">
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/50 border-b border-slate-100 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up" className="text-center mb-16">
-            <span className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2 block">Skupina ZFP Group</span>
+          <ScrollReveal direction="up" className="text-center mb-14 sm:mb-16">
+            <span className="text-xs font-bold tracking-widest text-brand-600 uppercase mb-2.5 block">Skupina ZFP Group</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">Projekty skupiny ZFP Group, a.s.</h2>
-            <p className="text-slate-600 text-base max-w-2xl mx-auto">
+            <p className="text-slate-600 text-base max-w-2xl mx-auto leading-relaxed">
               Silné zázemí mateřské skupiny spojuje vzdělávání, investice, drahé kovy, reality i hotelnictví.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 sm:gap-6">
             {zfpProjects.map((project, idx) => (
               <ScrollReveal 
                 key={project.name}
-                delay={idx * 0.06}
+                delay={idx * 0.05}
                 direction="up"
                 className="flex"
               >
@@ -371,21 +387,46 @@ export default function Home() {
                   href={project.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="w-full bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 hover:border-brand-400 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center justify-between group hover:-translate-y-2"
+                  className="w-full bg-white rounded-2xl p-5 border border-slate-200/80 hover:border-brand-500/40 hover:shadow-[0_16px_36px_-10px_rgba(234,88,12,0.12)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 relative overflow-hidden"
                 >
-                  <div className="h-24 w-full flex items-center justify-center mb-4 p-2.5 rounded-2xl bg-slate-50 group-hover:bg-brand-50/40 transition-colors border border-slate-100/80">
+                  {/* Subtle top brand indicator line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Logo stage with tailored optical bounds */}
+                  <div className="h-20 w-full flex items-center justify-center mb-3.5 px-3 py-2 rounded-xl bg-slate-50/80 group-hover:bg-brand-50/25 transition-colors border border-slate-100/90 group-hover:border-brand-100/60">
                     <img 
                       src={project.logo} 
                       alt={project.fullName} 
-                      width="220" 
-                      height="90" 
+                      width={project.isWide ? 565 : 300} 
+                      height={project.isWide ? 92 : 250} 
                       loading="lazy" 
-                      className="max-h-16 max-w-[160px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-xs" 
+                      className={`${
+                        project.isWide 
+                          ? 'h-8 sm:h-8.5 max-w-[155px] w-auto' 
+                          : 'h-11 sm:h-12 w-auto'
+                      } object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-xs`} 
                     />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-brand-600 transition-colors">{project.name}</h3>
-                    <p className="text-xs text-slate-500 leading-relaxed">{project.description}</p>
+
+                  {/* Text Details & Category */}
+                  <div className="text-center flex flex-col flex-1 justify-between">
+                    <div>
+                      <div className="inline-flex items-center justify-center gap-1 mb-1">
+                        <h3 className="font-bold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
+                          {project.name}
+                        </h3>
+                        <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-brand-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                      </div>
+                      <p className="text-[11.5px] text-slate-500 leading-snug line-clamp-2">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-center">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-brand-600 group-hover:text-brand-700">
+                        {project.tag}
+                      </span>
+                    </div>
                   </div>
                 </a>
               </ScrollReveal>

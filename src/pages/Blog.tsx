@@ -62,6 +62,9 @@ export default function Blog() {
                   <img 
                     src={post.imageUrl} 
                     alt={post.title} 
+                    width="640"
+                    height="400"
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors" />
