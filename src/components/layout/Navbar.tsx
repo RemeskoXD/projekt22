@@ -29,7 +29,7 @@ export default function Navbar() {
               <img
                 src="/logo-zfp-jagos-partneri.png"
                 alt="ZFP GROUP Jagoš & partneři"
-                className="h-13 sm:h-15 lg:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03] drop-shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
+                className="h-14 sm:h-16 lg:h-18 max-h-[76px] w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] drop-shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
                 width="221"
                 height="72"
               />

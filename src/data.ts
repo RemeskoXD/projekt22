@@ -146,7 +146,7 @@ export const teamMembers: TeamMember[] = [
     quote: '"Správná finanční rozhodnutí dělají život klidnějším a bezstarostnějším."',
     email: 'klara.kovarova@zfpa.cz',
     phone: '+420 603 542 055',
-    imageUrl: '',
+    imageUrl: '/team/klara-kovarova.webp',
   },
   {
     id: 'michaela-ivanova',

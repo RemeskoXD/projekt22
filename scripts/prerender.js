@@ -133,7 +133,7 @@ const teamMembers = [
     bio: 'Osobní přístup k řešení rodinných rozpočtů, pojištění a dlouhodobého spoření pro děti.',
     email: 'klara.kovarova@zfpa.cz',
     phone: '+420 603 542 055',
-    image: '/spolecna-2-scaled.webp'
+    image: '/team/klara-kovarova.webp'
   },
   {
     id: 'michaela-ivanova',

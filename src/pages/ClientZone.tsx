@@ -66,14 +66,22 @@ export default function ClientZone() {
                     <h3 className="text-xl font-bold text-slate-900 mb-4">{provider.name}</h3>
                     <p className="text-slate-600 mb-4 text-sm">Kliknutím na jeden z odkazů si zvolte formu hlášení pojistné události.</p>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                      <a href="#" className="inline-flex items-center justify-center px-4 py-2 border border-brand-200 rounded-lg text-brand-700 bg-brand-50 hover:bg-brand-100 transition-colors font-medium">
-                        <ExternalLink className="w-4 h-4 mr-2" /> Online formulář
+                      <a
+                        href={provider.onlineUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center justify-center px-4 py-2 border border-brand-200 rounded-lg text-brand-700 bg-brand-50 hover:bg-brand-100 transition-colors font-medium text-sm"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" /> Online hlášení škody
                       </a>
-                      <a href="#" className="inline-flex items-center justify-center px-4 py-2 border border-slate-200 rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors font-medium">
-                        <Download className="w-4 h-4 mr-2" /> Papírový formulář
+                      <a
+                        href={provider.formUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center justify-center px-4 py-2 border border-slate-200 rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors font-medium text-sm"
+                      >
+                        <Download className="w-4 h-4 mr-2" /> Portál {provider.name}
                       </a>
-                    </div>
                     
                     <p className="text-xs text-slate-500 italic">
                       Formulář vytisknete, vyplníte a společně s lékařskými zprávami odešlete doporučeně na adresu pojišťovny nebo dodejte na kancelář.

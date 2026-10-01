@@ -67,21 +67,19 @@ export default function InitialSplashLoader({ children }: InitialSplashLoaderPro
             {/* Central Badge & Logo Reveal */}
             <div className="relative z-10 flex flex-col items-center text-center px-6">
               <motion.div
-                initial={{ scale: 0.8, opacity: 0, y: 15 }}
+                initial={{ scale: 0.85, opacity: 0, y: 15 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="relative mb-6"
+                className="relative mb-8"
               >
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-brand-500 via-amber-400 to-orange-600 shadow-[0_0_40px_rgba(230,83,0,0.4)]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center">
-                    <img
-                      src="/logo-jagos-partneri.jpg"
-                      alt="ZFP Jagoš & partneři"
-                      className="w-full h-full object-cover"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
+                <div className="px-8 py-5 rounded-3xl bg-white/95 backdrop-blur-md shadow-[0_0_50px_rgba(230,83,0,0.3)] border border-white/40 flex items-center justify-center">
+                  <img
+                    src="/logo-zfp-jagos-partneri.png"
+                    alt="ZFP GROUP Jagoš & partneři"
+                    className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm"
+                    width="221"
+                    height="72"
+                  />
                 </div>
               </motion.div>
 

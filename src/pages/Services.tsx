@@ -1,39 +1,13 @@
 import { motion } from 'motion/react';
 import { Home, TrendingUp, ShieldCheck, Baby, Calculator, PiggyBank, ArrowRight, Sparkles, ExternalLink, Building2 } from 'lucide-react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AmbientBackground from '../components/animations/AmbientBackground';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import Breadcrumbs from '../components/Breadcrumbs';
+import CalculatorSuite from '../components/calculators/CalculatorSuite';
 
 export default function Services() {
-  const [investAmount, setInvestAmount] = useState(100000);
-  const [monthlyDeposit, setMonthlyDeposit] = useState(5000);
-  const [years, setYears] = useState(20);
-  const interestRate = 0.06; // 6% annual return for illustration
-
-  // Calculate future value (Compound interest)
-  const calculateFutureValue = () => {
-    const monthlyRate = interestRate / 12;
-    const months = years * 12;
-    
-    // Future value of initial amount
-    const fvInitial = investAmount * Math.pow(1 + monthlyRate, months);
-    
-    // Future value of monthly deposits
-    const fvDeposits = monthlyDeposit * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
-    
-    return Math.round(fvInitial + fvDeposits);
-  };
-
-  const totalInvested = investAmount + (monthlyDeposit * 12 * years);
-  const futureValue = calculateFutureValue();
-  const profit = futureValue - totalInvested;
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 }).format(value);
-  };
 
   const servicesSchema = {
     "@context": "https://schema.org",
@@ -231,171 +205,10 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <section id="kalkulacka" className="py-24 bg-slate-900 text-white scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Calculator className="w-12 h-12 text-brand-400 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold mb-4">Investiční kalkulačka</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Podívejte se, jak by mohly vaše peníze pracovat v čase. (Výpočet uvažuje s orientačním zhodnocením 6 % p.a.)
-            </p>
-          </div>
-
-          <div className="bg-slate-800 rounded-3xl p-8 lg:p-12 border border-slate-700">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              
-              {/* Controls */}
-              <div className="space-y-8">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label className="font-medium text-slate-300">Počáteční vklad</label>
-                    <span className="font-bold text-white">{formatCurrency(investAmount)}</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="0" max="1000000" step="10000"
-                    value={investAmount} 
-                    onChange={(e) => setInvestAmount(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-500"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label className="font-medium text-slate-300">Pravidelná měsíční úložka</label>
-                    <span className="font-bold text-white">{formatCurrency(monthlyDeposit)}</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="0" max="50000" step="500"
-                    value={monthlyDeposit} 
-                    onChange={(e) => setMonthlyDeposit(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-500"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label className="font-medium text-slate-300">Doba investování</label>
-                    <span className="font-bold text-white">{years} let</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    min="1" max="40" step="1"
-                    value={years} 
-                    onChange={(e) => setYears(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-500"
-                  />
-                </div>
-              </div>
-
-              {/* Results */}
-              <div className="flex flex-col justify-center bg-slate-900 rounded-2xl p-8 border border-slate-700">
-                <div className="mb-8">
-                  <p className="text-slate-400 text-sm mb-1">Očekávaná hodnota portfolia</p>
-                  <p className="text-4xl lg:text-5xl font-bold text-brand-400">{formatCurrency(futureValue)}</p>
-                </div>
-                
-                <div className="space-y-4 pt-8 border-t border-slate-800">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Celkem vloženo:</span>
-                    <span className="font-medium text-white">{formatCurrency(totalInvested)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Čistý zisk z úroků:</span>
-                    <span className="font-medium text-brand-400">+{formatCurrency(profit)}</span>
-                  </div>
-                </div>
-                
-                <p className="text-xs text-slate-500 mt-8">
-                  Upozornění: Minulá výkonnost nezaručuje budoucí výnosy. Jedná se o ilustrativní příklad nezohledňující poplatky a inflaci.
-                </p>
-              </div>
-
-            </div>
-
-            {/* Additional Specialized Online Tools (HypoSpace + ZFP Reality) */}
-            <div className="mt-12 pt-12 border-t border-slate-700/80">
-              <h3 className="text-xl font-bold text-white text-center mb-8">
-                Další online nástroje a kalkulačky našich projektů
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                {/* HypoSpace Calculator */}
-                <div className="bg-slate-900/90 rounded-2xl p-6 border border-slate-700/70 hover:border-brand-400 transition-all flex flex-col justify-between group">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-12 bg-white px-3 py-1.5 rounded-xl flex items-center justify-center">
-                        <img 
-                          src="/logo-hypospace.png" 
-                          alt="HypoSpace.cz – Hypoteční kalkulačka" 
-                          className="h-7 w-auto object-contain"
-                          width="140"
-                          height="35"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">
-                        Hypoteční srovnávač
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
-                      HypoSpace.cz – Online hypoteční kalkulačka
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                      Okamžité a nezávislé porovnání hypotečních nabídek všech bank na českém trhu. Spočítejte si reálnou měsíční splátku i s neveřejnými sazbami.
-                    </p>
-                  </div>
-                  <a 
-                    href="https://hypospace.cz" 
-                    target="_blank" 
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-semibold text-sm transition-all shadow-md group-hover:scale-[1.02]"
-                  >
-                    Otevřít HypoSpace kalkulačku <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </div>
-
-                {/* ZFP Reality Property Valuation */}
-                <div className="bg-slate-900/90 rounded-2xl p-6 border border-slate-700/70 hover:border-brand-400 transition-all flex flex-col justify-between group">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-12 bg-white px-3 py-1.5 rounded-xl flex items-center justify-center">
-                        <img 
-                          src="/logo-reality-web-2-066e7c04.webp" 
-                          alt="ZFP Reality – Odhad ceny nemovitosti" 
-                          className="h-7 w-auto object-contain"
-                          width="140"
-                          height="35"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">
-                        Oceňování nemovitostí
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
-                      ZFP Reality – Online odhad nemovitosti
-                    </h4>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                      Rychlé zjištění aktuální tržní hodnoty bytu, rodinného domu či pozemku na základě přesných dat z katastru nemovitostí a reálných prodejních cen.
-                    </p>
-                  </div>
-                  <a 
-                    href="https://www.zfpreality.cz" 
-                    target="_blank" 
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-all group-hover:scale-[1.02]"
-                  >
-                    Vyzkoušet odhad nemovitosti <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
+      {/* Comprehensive Interactive Calculator Suite (HypoSpace, ZFP Investments, ZFP Reality) */}
+      <section id="kalkulacka" className="py-20 sm:py-28 bg-slate-900 text-white scroll-mt-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <CalculatorSuite defaultTab="mortgage" />
         </div>
       </section>
 
